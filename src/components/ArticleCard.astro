@@ -24,6 +24,7 @@ const dateStr = pubDate.toLocaleDateString('ja-JP', {
 ---
 
 <a href={href} class:list={['card', { 'card--large': size === 'large' }]}>
+  <svg class="card-border" preserveAspectRatio="none"><rect x="1" y="1" rx="0" ry="0" /></svg>
   <div class="card-thumb">
     {coverImage
       ? <img src={coverImage} alt={title} loading="lazy" />
@@ -51,15 +52,32 @@ const dateStr = pubDate.toLocaleDateString('ja-JP', {
     border: 1.5px solid var(--ash);
     text-decoration: none;
     color: var(--ink);
-    transition: border-color 0.15s;
+    position: relative;
   }
 
-  .card:hover {
-    border-color: var(--ghost);
+  .card-border {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
   }
 
-  .card:hover .card-title {
-    border-bottom-color: var(--green-bright);
+  .card-border rect {
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    fill: none;
+    stroke: var(--green);
+    stroke-width: 2.5;
+    stroke-dasharray: 9999;
+    stroke-dashoffset: 9999;
+    transition: none;
+  }
+
+  .card:hover .card-border rect {
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 2s ease;
   }
 
   /* Thumbnail */
@@ -156,8 +174,7 @@ const dateStr = pubDate.toLocaleDateString('ja-JP', {
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    border-bottom: 1.5px solid transparent;
-    transition: border-color 0.15s;
+    border-bottom: 1.5px solid var(--green-bright);
     padding-bottom: 0.15rem;
   }
 
