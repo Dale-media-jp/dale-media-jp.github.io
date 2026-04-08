@@ -1,0 +1,21 @@
+---
+interface Props {
+  url: string;
+}
+const { url } = Astro.props;
+---
+
+<div class="tweet-embed">
+  <blockquote class="twitter-tweet" data-lang="ja" data-dnt="true">
+    <a href={url}>ポストを読み込み中...</a>
+  </blockquote>
+</div>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<style>
+  .tweet-embed {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+  }
+</style>

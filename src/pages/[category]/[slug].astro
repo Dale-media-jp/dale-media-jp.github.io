@@ -19,7 +19,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 const { post } = Astro.props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
+const tocHeadings = headings.filter(h => h.depth === 2 || h.depth === 3);
 
 const categoryLabels: Record<string, string> = {
   'ai-basics': 'AI入門',
@@ -83,6 +84,20 @@ const dateStr = post.data.pubDate.toLocaleDateString('ja-JP', {
               ))}
             </div>
           </header>
+
+          <!-- Table of Contents -->
+          {tocHeadings.length > 0 && (
+            <nav class="toc">
+              <p class="toc-title">目次</p>
+              <ol class="toc-list">
+                {tocHeadings.map(h => (
+                  <li class:list={['toc-item', { 'toc-item--h3': h.depth === 3 }]}>
+                    <a href={`#${h.slug}`}>{h.text}</a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+          )}
 
           <!-- Body -->
           <div class="article-body">
@@ -259,6 +274,74 @@ const dateStr = post.data.pubDate.toLocaleDateString('ja-JP', {
     background: var(--paper);
     border: 1px solid var(--ash);
     padding: 0.1em 0.5em;
+  }
+
+  /* Table of Contents */
+  .toc {
+    margin: 0 2rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--paper);
+    border: 1.5px solid var(--ash);
+    border-left: 3px solid var(--green);
+  }
+
+  .toc-title {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+  }
+
+  .toc-list {
+    list-style: none;
+    counter-reset: toc;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .toc-item {
+    counter-increment: toc;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+
+  .toc-item::before {
+    content: counter(toc) ".";
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    color: var(--ghost);
+    flex-shrink: 0;
+    min-width: 1.2rem;
+  }
+
+  .toc-item--h3 {
+    padding-left: 1.5rem;
+  }
+
+  .toc-item--h3::before {
+    content: "–";
+    font-size: 0.7rem;
+    min-width: 1rem;
+  }
+
+  .toc-item a {
+    font-family: var(--sans);
+    font-size: 0.83rem;
+    color: var(--ink-2);
+    text-decoration: none;
+    line-height: 1.5;
+    border-bottom: none;
+    transition: color 0.15s;
+  }
+
+  .toc-item a:hover {
+    color: var(--green);
+    border-bottom: none;
   }
 
   /* Article body */
