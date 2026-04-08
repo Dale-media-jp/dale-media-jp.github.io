@@ -33,7 +33,12 @@ const dateStr = post.data.pubDate.toLocaleDateString('ja-JP', {
 }).replace(/\//g, '.');
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description}>
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  ogType="article"
+  ogImage={post.data.coverImage}
+>
   <div class="page-outer">
     <div class="page-layout">
       <main class="page-main">

@@ -2,11 +2,24 @@
 interface Props {
   title?: string;
   description?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  canonicalUrl?: string;
 }
 
-const { title = 'Dale Media', description = 'ビジネスに役立つAI情報メディア' } = Astro.props;
+const {
+  title = 'Dale Media',
+  description = 'ビジネスに役立つAI情報メディア',
+  ogImage,
+  ogType = 'website',
+  canonicalUrl,
+} = Astro.props;
+
 const siteTitle = title === 'Dale Media' ? title : `${title} | Dale Media`;
 const currentPath = Astro.url.pathname;
+const siteOrigin = 'https://dale-media-jp.github.io';
+const canonical = canonicalUrl ?? `${siteOrigin}${currentPath}`;
+const ogImageUrl = ogImage ?? `${siteOrigin}/ogp-default.png`;
 
 const navItems = [
   { href: '/ai-basics', label: 'AI入門' },
@@ -26,6 +39,24 @@ const navItems = [
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{siteTitle}</title>
+    <link rel="canonical" href={canonical} />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+    <!-- OGP -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content="Dale Media" />
+    <meta property="og:title" content={siteTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:locale" content="ja_JP" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={siteTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
