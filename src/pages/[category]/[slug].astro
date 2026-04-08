@@ -20,7 +20,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 const { post } = Astro.props;
 const { Content, headings } = await render(post);
-const tocHeadings = headings.filter(h => h.depth === 2 || h.depth === 3);
+const tocHeadings = post.collection === 'ai-basics'
+  ? headings.filter(h => h.depth === 2)
+  : headings.filter(h => h.depth === 2 || h.depth === 3);
 
 const categoryLabels: Record<string, string> = {
   'ai-basics': 'AI入門',
