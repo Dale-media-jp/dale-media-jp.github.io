@@ -3,14 +3,20 @@ interface Props {
   url: string;
 }
 const { url } = Astro.props;
+
+let embedHtml = `<blockquote class="twitter-tweet" data-lang="ja" data-dnt="true"><a href="${url}"></a></blockquote>`;
+try {
+  const oembedUrl = `https://publish.twitter.com/oembed?url=${encodeURIComponent(url)}&lang=ja&dnt=true&omit_script=true`;
+  const res = await fetch(oembedUrl);
+  if (res.ok) {
+    const data = await res.json();
+    embedHtml = data.html;
+  }
+} catch {}
 ---
 
-<div class="tweet-embed">
-  <blockquote class="twitter-tweet" data-lang="ja" data-dnt="true">
-    <a href={url}>ポストを読み込み中...</a>
-  </blockquote>
-</div>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<div class="tweet-embed" set:html={embedHtml} />
+<script is:inline async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <style>
   .tweet-embed {
