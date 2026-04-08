@@ -73,7 +73,6 @@ const dateStr = post.data.pubDate.toLocaleDateString('ja-JP', {
             {!post.data.coverImage && <h1 class="article-title is-hidden">{post.data.title}</h1>}
             <p class="article-desc">{post.data.description}</p>
             <div class="article-tags">
-              <span class="tag-label">対象：{post.data.persona}</span>
               {post.data.keywords.map(kw => (
                 <span class="tag">#{kw}</span>
               ))}
@@ -246,12 +245,6 @@ const dateStr = post.data.pubDate.toLocaleDateString('ja-JP', {
     flex-wrap: wrap;
     align-items: center;
     gap: 0.4rem;
-  }
-
-  .tag-label {
-    font-family: var(--sans);
-    font-size: 0.72rem;
-    color: var(--muted);
   }
 
   .tag {
