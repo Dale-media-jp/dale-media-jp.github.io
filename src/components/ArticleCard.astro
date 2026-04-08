@@ -1,0 +1,193 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  description: string;
+  pubDate: Date;
+  category: string;
+  coverImage?: string;
+  size?: 'default' | 'large';
+}
+
+const { href, title, description, pubDate, category, coverImage, size = 'default' } = Astro.props;
+
+const categoryLabels: Record<string, string> = {
+  'ai-basics': 'AI入門',
+  'biz-ai':    'ビジネスAI',
+  'cases':     '導入事例',
+};
+
+const catLabel = categoryLabels[category] ?? category;
+const dateStr = pubDate.toLocaleDateString('ja-JP', {
+  year: 'numeric', month: '2-digit', day: '2-digit',
+}).replace(/\//g, '.');
+---
+
+<a href={href} class:list={['card', { 'card--large': size === 'large' }]}>
+  <div class="card-thumb">
+    {coverImage
+      ? <img src={coverImage} alt={title} loading="lazy" />
+      : <div class="thumb-placeholder">
+          <span class="thumb-category">{catLabel}</span>
+          <p class="thumb-title">{title}</p>
+        </div>
+    }
+  </div>
+  <div class="card-body">
+    <p class="card-category">{catLabel}</p>
+    <h3 class="card-title">{title}</h3>
+    {size === 'large' && (
+      <p class="card-desc">{description}</p>
+    )}
+    <time class="card-date" datetime={pubDate.toISOString()}>{dateStr}</time>
+  </div>
+</a>
+
+<style>
+  .card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1.5px solid var(--ash);
+    text-decoration: none;
+    color: var(--ink);
+    transition: border-color 0.15s;
+  }
+
+  .card:hover {
+    border-color: var(--ghost);
+  }
+
+  .card:hover .card-title {
+    border-bottom-color: var(--green-bright);
+  }
+
+  /* Thumbnail */
+  .card-thumb {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #1a1714;
+    flex-shrink: 0;
+  }
+
+  .card-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+
+  .card:hover .card-thumb img {
+    transform: scale(1.03);
+  }
+
+  .thumb-placeholder {
+    width: 100%;
+    height: 100%;
+    background: #1a1714;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem;
+    position: relative;
+  }
+
+  .thumb-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 3px,
+      rgba(255,255,255,0.01) 3px,
+      rgba(255,255,255,0.01) 4px
+    );
+  }
+
+  .thumb-category {
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--green);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .thumb-title {
+    font-family: var(--serif);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Card body */
+  .card-body {
+    padding: 0.875rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .card-category {
+    font-family: var(--sans);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+  }
+
+  .card-title {
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    border-bottom: 1.5px solid transparent;
+    transition: border-color 0.15s;
+    padding-bottom: 0.15rem;
+  }
+
+  .card-desc {
+    font-size: 0.82rem;
+    color: var(--ink-2);
+    line-height: 1.65;
+    margin-top: 0.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex: 1;
+  }
+
+  .card-date {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    color: var(--muted);
+    margin-top: 0.6rem;
+    display: block;
+  }
+
+  /* Large variant */
+  .card--large .card-body {
+    padding: 1.1rem 1.25rem 1.25rem;
+  }
+
+  .card--large .card-title {
+    font-size: 1.15rem;
+    -webkit-line-clamp: 4;
+  }
+</style>

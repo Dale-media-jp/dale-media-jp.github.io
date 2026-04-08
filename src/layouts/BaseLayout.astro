@@ -1,0 +1,223 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = 'Dale Media', description = 'ビジネスに役立つAI情報メディア' } = Astro.props;
+const siteTitle = title === 'Dale Media' ? title : `${title} | Dale Media`;
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { href: '/ai-basics', label: 'AI入門' },
+  { href: '/biz-ai',    label: 'ビジネスAI' },
+  { href: '/cases',     label: '導入事例' },
+];
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{siteTitle}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="/" class="site-logo">Dale Media</a>
+        <nav class="site-nav">
+          {navItems.map(item => (
+            <a
+              href={item.href}
+              class:list={['nav-link', { 'is-active': currentPath.startsWith(item.href) }]}
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </header>
+
+    <slot />
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <a href="/" class="footer-logo">Dale Media</a>
+          <nav class="footer-nav">
+            {navItems.map(item => (
+              <a href={item.href}>{item.label}</a>
+            ))}
+            <a href="/about">運営者情報</a>
+            <a href="/privacy">プライバシーポリシー</a>
+            <a href="/contact">お問い合わせ</a>
+          </nav>
+        </div>
+        <p class="footer-copy">&copy; {new Date().getFullYear()} Dale Media</p>
+      </div>
+    </footer>
+
+  </body>
+</html>
+
+<style is:global>
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    --paper:  #f5f2ec;
+    --ink:    #0c0c0c;
+    --ink-2:  #3a3530;
+    --muted:  #9a9489;
+    --ash:    #e4e0d8;
+    --ghost:  #c8c3ba;
+    --dark:   #162d1c;
+    --green:       #2d7a3e;
+    --green-bright: #3fa355;
+    --serif: 'Noto Serif JP', 'Yu Mincho', serif;
+    --sans:  'Inter', 'Hiragino Kaku Gothic ProN', sans-serif;
+  }
+
+  html {
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; height: auto; display: block; }
+</style>
+
+<style>
+  /* ===== Header ===== */
+  .site-header {
+    background: var(--dark);
+    border-bottom: 1px solid #2a2a2a;
+    position: sticky;
+    top: 0;
+    z-index: 200;
+  }
+
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .site-logo {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+  }
+
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .site-nav::-webkit-scrollbar { display: none; }
+
+  .nav-link {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #aaa;
+    padding: 0 1rem;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  .nav-link:hover,
+  .nav-link.is-active {
+    color: #fff;
+    border-bottom-color: var(--green);
+  }
+
+  /* ===== Footer ===== */
+  .site-footer {
+    background: var(--dark);
+    color: #888;
+    margin-top: 5rem;
+    border-top: 3px solid var(--green);
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem 2rem;
+  }
+
+  .footer-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #2a2a2a;
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-logo {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: 0.05em;
+  }
+
+  .footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.5rem;
+  }
+
+  .footer-nav a {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    color: #888;
+    transition: color 0.15s;
+  }
+
+  .footer-nav a:hover { color: #fff; }
+
+  .footer-copy {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    color: #555;
+  }
+
+  @media (max-width: 640px) {
+    .footer-top { flex-direction: column; }
+  }
+</style>

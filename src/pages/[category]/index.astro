@@ -1,0 +1,192 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import Sidebar from '../../components/Sidebar.astro';
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  return [
+    { params: { category: 'ai-basics' } },
+    { params: { category: 'biz-ai' } },
+    { params: { category: 'cases' } },
+  ];
+};
+
+const { category } = Astro.params as { category: 'ai-basics' | 'biz-ai' | 'cases' };
+
+const posts = (await getCollection(category, ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const meta: Record<string, { label: string; description: string }> = {
+  'ai-basics': {
+    label: 'AI入門',
+    description: '主婦・シニアの方向けに、AIをやさしく解説します。',
+  },
+  'biz-ai': {
+    label: 'ビジネスAI',
+    description: '士業・中小企業の業務効率化に役立つAI活用術を紹介します。',
+  },
+  'cases': {
+    label: '導入事例',
+    description: 'Dale MediaによるAI受託開発の実績・事例を公開しています。',
+  },
+};
+
+const { label, description } = meta[category];
+---
+
+<BaseLayout title={label} description={description}>
+  <div class="page-outer">
+
+    <!-- Page header -->
+    <div class="cat-header">
+      <nav class="breadcrumb">
+        <a href="/">Dale Media</a>
+        <span>/</span>
+        <span>{label}</span>
+      </nav>
+      <h1 class="cat-title">{label}</h1>
+      <p class="cat-desc">{description}</p>
+    </div>
+
+    <div class="page-layout">
+      <main class="page-main">
+        {posts.length === 0 ? (
+          <p class="empty">記事はまだありません。</p>
+        ) : (
+          <div class="card-grid">
+            {posts.map(post => (
+              <ArticleCard
+                href={`/${post.collection}/${post.id}`}
+                title={post.data.title}
+                description={post.data.description}
+                pubDate={post.data.pubDate}
+                category={post.collection}
+                coverImage={post.data.coverImage}
+              />
+            ))}
+          </div>
+        )}
+      </main>
+
+      <div class="page-sidebar">
+        <Sidebar />
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-outer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 0;
+  }
+
+  .cat-header {
+    padding-bottom: 1.25rem;
+    border-bottom: 1.5px solid var(--ash);
+    margin-bottom: 1.75rem;
+  }
+
+  .breadcrumb {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .breadcrumb a {
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover { color: var(--green); }
+
+  .cat-title {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.35rem;
+  }
+
+  .cat-title::after {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 3px;
+    background: var(--green);
+    margin-top: 0.5rem;
+  }
+
+  .cat-desc {
+    font-size: 0.875rem;
+    color: var(--ink-2);
+    margin-top: 0.75rem;
+  }
+
+  .page-layout {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .page-main { min-width: 0; }
+
+  .page-sidebar {
+    position: sticky;
+    top: calc(52px + 1.5rem);
+  }
+
+  .empty {
+    padding: 3rem;
+    text-align: center;
+    color: var(--muted);
+    border: 1.5px solid var(--ash);
+    background: #fff;
+    font-family: var(--sans);
+    font-size: 0.875rem;
+    margin-bottom: 3rem;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1.5px solid var(--ash);
+    margin-bottom: 3rem;
+  }
+
+  .card-grid :global(.card) {
+    border: none;
+    border-right: 1.5px solid var(--ash);
+    border-bottom: 1.5px solid var(--ash);
+  }
+
+  .card-grid :global(.card:nth-child(3n)) { border-right: none; }
+
+  .card-grid :global(.card:nth-last-child(-n+3):nth-child(3n+1)),
+  .card-grid :global(.card:nth-last-child(-n+2):nth-child(3n+1)),
+  .card-grid :global(.card:last-child) { border-bottom: none; }
+
+  @media (max-width: 1024px) {
+    .page-layout { grid-template-columns: 1fr; }
+    .page-sidebar { position: static; }
+  }
+
+  @media (max-width: 768px) {
+    .card-grid { grid-template-columns: repeat(2, 1fr); }
+    .card-grid :global(.card:nth-child(3n)) { border-right: 1.5px solid var(--ash); }
+    .card-grid :global(.card:nth-child(2n)) { border-right: none; }
+  }
+
+  @media (max-width: 480px) {
+    .card-grid { grid-template-columns: 1fr; }
+    .card-grid :global(.card) { border-right: none !important; }
+  }
+</style>

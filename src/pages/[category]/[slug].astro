@@ -1,0 +1,417 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Sidebar from '../../components/Sidebar.astro';
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const categories = ['ai-basics', 'biz-ai', 'cases'] as const;
+  const paths = [];
+
+  for (const category of categories) {
+    const posts = await getCollection(category, ({ data }) => !data.draft);
+    for (const post of posts) {
+      paths.push({ params: { category, slug: post.id }, props: { post } });
+    }
+  }
+
+  return paths;
+};
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const categoryLabels: Record<string, string> = {
+  'ai-basics': 'AI入門',
+  'biz-ai':    'ビジネスAI',
+  'cases':     '導入事例',
+};
+
+const catLabel = categoryLabels[post.collection] ?? post.collection;
+const dateStr = post.data.pubDate.toLocaleDateString('ja-JP', {
+  year: 'numeric', month: '2-digit', day: '2-digit',
+}).replace(/\//g, '.');
+---
+
+<BaseLayout title={post.data.title} description={post.data.description}>
+  <div class="page-outer">
+    <div class="page-layout">
+      <main class="page-main">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+          <a href="/">Dale Media</a>
+          <span>/</span>
+          <a href={`/${post.collection}`}>{catLabel}</a>
+          <span>/</span>
+          <span class="breadcrumb-current">{post.data.title}</span>
+        </nav>
+
+        <article class="article">
+          <!-- Cover -->
+          <div
+            class="article-cover"
+            style={post.data.coverImage
+              ? `background-image: url(${post.data.coverImage}); background-size: cover; background-position: center`
+              : `background: #1a1714`}
+          >
+            {!post.data.coverImage && (
+              <>
+                <span class="cover-cat">{catLabel}</span>
+                <h1 class="cover-title">{post.data.title}</h1>
+              </>
+            )}
+          </div>
+
+          <!-- Article header -->
+          <header class="article-header">
+            <div class="article-eyebrow">
+              <a href={`/${post.collection}`} class="article-cat">{catLabel}</a>
+              <time class="article-date" datetime={post.data.pubDate.toISOString()}>{dateStr}</time>
+            </div>
+            {post.data.coverImage && <h1 class="article-title">{post.data.title}</h1>}
+            {!post.data.coverImage && <h1 class="article-title is-hidden">{post.data.title}</h1>}
+            <p class="article-desc">{post.data.description}</p>
+            <div class="article-tags">
+              <span class="tag-label">対象：{post.data.persona}</span>
+              {post.data.keywords.map(kw => (
+                <span class="tag">#{kw}</span>
+              ))}
+            </div>
+          </header>
+
+          <!-- Body -->
+          <div class="article-body">
+            <Content />
+          </div>
+
+          <!-- Footer -->
+          <footer class="article-footer">
+            <a href={`/${post.collection}`} class="back-link">← {catLabel}の記事一覧</a>
+          </footer>
+        </article>
+
+      </main>
+
+      <div class="page-sidebar">
+        <Sidebar />
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-outer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem 1.25rem 0;
+  }
+
+  .page-layout {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .page-main { min-width: 0; }
+
+  .page-sidebar {
+    position: sticky;
+    top: calc(52px + 1.5rem);
+  }
+
+  /* Breadcrumb */
+  .breadcrumb {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .breadcrumb a {
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover { color: var(--green); }
+
+  .breadcrumb-current {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
+  }
+
+  /* Article */
+  .article {
+    background: #fff;
+    border: 1.5px solid var(--ash);
+    margin-bottom: 3rem;
+  }
+
+  /* Cover */
+  .article-cover {
+    width: 100%;
+    aspect-ratio: 16 / 7;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+  }
+
+  .cover-cat {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--green);
+    display: block;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cover-title {
+    font-family: var(--serif);
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    font-weight: 900;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.4;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Article header */
+  .article-header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1.5px solid var(--ash);
+  }
+
+  .article-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-cat {
+    font-family: var(--sans);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s;
+  }
+
+  .article-cat:hover { border-bottom-color: var(--green); }
+
+  .article-date {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    color: var(--muted);
+  }
+
+  .article-title {
+    font-family: var(--serif);
+    font-size: clamp(1.3rem, 3vw, 1.7rem);
+    font-weight: 900;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    margin-bottom: 1rem;
+  }
+
+  .article-title.is-hidden { display: none; }
+
+  .article-desc {
+    font-size: 0.9rem;
+    color: var(--ink-2);
+    line-height: 1.7;
+    padding: 0.75rem 1rem;
+    border-left: 3px solid var(--ash);
+    margin-bottom: 1rem;
+  }
+
+  .article-tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .tag-label {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    color: var(--muted);
+  }
+
+  .tag {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    color: var(--muted);
+    background: var(--paper);
+    border: 1px solid var(--ash);
+    padding: 0.1em 0.5em;
+  }
+
+  /* Article body */
+  .article-body {
+    padding: 2rem;
+    font-size: 1rem;
+    line-height: 1.9;
+    color: var(--ink);
+  }
+
+  .article-body :global(h2) {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1.5px solid var(--ash);
+  }
+
+  .article-body :global(h2::before) {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 1em;
+    background: var(--green);
+    margin-right: 0.6rem;
+    vertical-align: middle;
+  }
+
+  .article-body :global(h3) {
+    font-family: var(--serif);
+    font-size: 1.02rem;
+    font-weight: 700;
+    margin: 2rem 0 0.75rem;
+  }
+
+  .article-body :global(p) {
+    margin-bottom: 1.3rem;
+  }
+
+  .article-body :global(ul),
+  .article-body :global(ol) {
+    margin: 0.75rem 0 1.25rem 1.5rem;
+  }
+
+  .article-body :global(li) { margin-bottom: 0.4rem; }
+
+  .article-body :global(blockquote) {
+    border-left: 3px solid var(--ghost);
+    padding: 0.75rem 1.25rem;
+    margin: 1.5rem 0;
+    color: var(--ink-2);
+    background: var(--paper);
+  }
+
+  .article-body :global(code) {
+    background: var(--paper);
+    border: 1px solid var(--ash);
+    padding: 0.1em 0.4em;
+    font-size: 0.875em;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+
+  .article-body :global(pre) {
+    background: #1a1714;
+    color: #e2e0dc;
+    padding: 1.25rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+    border: 1.5px solid #2a2520;
+  }
+
+  .article-body :global(pre code) {
+    background: none;
+    border: none;
+    padding: 0;
+    color: inherit;
+  }
+
+  .article-body :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+  }
+
+  .article-body :global(th),
+  .article-body :global(td) {
+    padding: 0.65rem 1rem;
+    border: 1px solid var(--ash);
+    text-align: left;
+  }
+
+  .article-body :global(th) {
+    background: var(--paper);
+    font-weight: 700;
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    letter-spacing: 0.03em;
+  }
+
+  .article-body :global(tr:nth-child(even) td) {
+    background: #faf9f6;
+  }
+
+  .article-body :global(hr) {
+    border: none;
+    border-top: 1.5px solid var(--ash);
+    margin: 2.5rem 0;
+  }
+
+  .article-body :global(strong) { font-weight: 700; }
+
+  .article-body :global(a) {
+    color: var(--ink);
+    border-bottom: 1px solid var(--ghost);
+    transition: border-color 0.15s, color 0.15s;
+  }
+
+  .article-body :global(a:hover) {
+    color: var(--green);
+    border-bottom-color: var(--green);
+  }
+
+  /* Article footer */
+  .article-footer {
+    padding: 1.25rem 2rem;
+    border-top: 1.5px solid var(--ash);
+    background: var(--paper);
+  }
+
+  .back-link {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .back-link:hover { color: var(--green); }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .page-layout { grid-template-columns: 1fr; }
+    .page-sidebar { position: static; }
+  }
+
+  @media (max-width: 640px) {
+    .article-header { padding: 1.25rem; }
+    .article-body { padding: 1.25rem; }
+    .article-footer { padding: 1rem 1.25rem; }
+  }
+</style>

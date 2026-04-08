@@ -1,0 +1,189 @@
+---
+import { getCollection } from 'astro:content';
+
+const categories = [
+  { id: 'ai-basics', label: 'AI入門' },
+  { id: 'biz-ai',    label: 'ビジネスAI' },
+  { id: 'cases',     label: '導入事例' },
+] as const;
+
+const counts = Object.fromEntries(
+  await Promise.all(
+    categories.map(async cat => [
+      cat.id,
+      (await getCollection(cat.id, ({ data }) => !data.draft)).length,
+    ])
+  )
+);
+
+const recent = [
+  ...(await getCollection('ai-basics', ({ data }) => !data.draft)),
+  ...(await getCollection('biz-ai',    ({ data }) => !data.draft)),
+  ...(await getCollection('cases',     ({ data }) => !data.draft)),
+]
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 6);
+
+const categoryLabels: Record<string, string> = {
+  'ai-basics': 'AI入門',
+  'biz-ai':    'ビジネスAI',
+  'cases':     '導入事例',
+};
+---
+
+<aside class="sidebar">
+
+  <section class="widget">
+    <h2 class="widget-title">カテゴリ</h2>
+    <ul class="cat-list">
+      {categories.map(cat => (
+        <li>
+          <a href={`/${cat.id}`} class="cat-row">
+            <span class="cat-name">{cat.label}</span>
+            <span class="cat-count">{counts[cat.id]}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="widget">
+    <h2 class="widget-title">新着記事</h2>
+    <ol class="recent-list">
+      {recent.map((post, i) => (
+        <li class="recent-item">
+          <a href={`/${post.collection}/${post.id}`} class="recent-link">
+            <span class="recent-num">{String(i + 1).padStart(2, '0')}</span>
+            <span class="recent-body">
+              <span class="recent-cat">{categoryLabels[post.collection]}</span>
+              <span class="recent-title">{post.data.title}</span>
+            </span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+</aside>
+
+<style>
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .widget {
+    border: 1.5px solid var(--ash);
+    border-top: none;
+    background: #fff;
+  }
+
+  .widget:first-child {
+    border-top: 1.5px solid var(--ash);
+  }
+
+  .widget-title {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--dark);
+    padding: 0.5rem 0.875rem;
+  }
+
+  /* Category list */
+  .cat-list {
+    list-style: none;
+  }
+
+  .cat-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.65rem 0.875rem;
+    font-family: var(--serif);
+    font-size: 0.875rem;
+    color: var(--ink-2);
+    border-bottom: 1px solid var(--ash);
+    transition: background 0.1s, color 0.1s;
+    text-decoration: none;
+  }
+
+  .cat-list li:last-child .cat-row { border-bottom: none; }
+
+  .cat-row:hover {
+    background: var(--paper);
+    color: var(--green);
+  }
+
+  .cat-count {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    color: var(--muted);
+  }
+
+  /* Recent list */
+  .recent-list {
+    list-style: none;
+  }
+
+  .recent-item {
+    border-bottom: 1px solid var(--ash);
+  }
+
+  .recent-item:last-child { border-bottom: none; }
+
+  .recent-link {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.75rem 0.875rem;
+    text-decoration: none;
+    color: var(--ink);
+    align-items: flex-start;
+    transition: background 0.1s;
+  }
+
+  .recent-link:hover {
+    background: var(--paper);
+  }
+
+  .recent-link:hover .recent-title {
+    color: var(--green);
+  }
+
+  .recent-num {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--ghost);
+    flex-shrink: 0;
+    padding-top: 0.1rem;
+    min-width: 1.5rem;
+  }
+
+  .recent-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 0;
+  }
+
+  .recent-cat {
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .recent-title {
+    font-family: var(--serif);
+    font-size: 0.82rem;
+    line-height: 1.45;
+    transition: color 0.15s;
+  }
+</style>

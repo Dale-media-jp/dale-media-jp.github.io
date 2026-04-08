@@ -1,11 +1,359 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import Sidebar from '../components/Sidebar.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const allPosts = [
+  ...(await getCollection('ai-basics', ({ data }) => !data.draft)),
+  ...(await getCollection('biz-ai',    ({ data }) => !data.draft)),
+  ...(await getCollection('cases',     ({ data }) => !data.draft)),
+].sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const [hero, ...rest] = allPosts;
+const subHero = rest.slice(0, 2);
+const grid = rest.slice(2);
+
+const categoryLabels: Record<string, string> = {
+  'ai-basics': 'AI入門',
+  'biz-ai':    'ビジネスAI',
+  'cases':     '導入事例',
+};
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout title="Dale Media" description="ビジネスに役立つAI情報メディア。AI入門からビジネス活用・導入事例まで。">
+
+  <div class="page-outer">
+
+    <!-- Main + Sidebar -->
+    <div class="page-layout">
+      <main class="page-main">
+
+        <!-- Hero section: asymmetric 2-col -->
+        {hero && (
+          <section class="hero-section">
+            <!-- Large featured -->
+            <a href={`/${hero.collection}/${hero.id}`} class="hero-main">
+              <div class="hero-thumb">
+                {hero.data.coverImage
+                  ? <img src={hero.data.coverImage} alt={hero.data.title} />
+                  : <div class="thumb-placeholder">
+                      <span class="thumb-cat">{categoryLabels[hero.collection]}</span>
+                      <p class="thumb-ttl">{hero.data.title}</p>
+                    </div>
+                }
+              </div>
+              <div class="hero-body">
+                <p class="hero-cat">{categoryLabels[hero.collection]}</p>
+                <h2 class="hero-title">{hero.data.title}</h2>
+                <p class="hero-desc">{hero.data.description}</p>
+                <time class="hero-date" datetime={hero.data.pubDate.toISOString()}>
+                  {hero.data.pubDate.toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '.')}
+                </time>
+              </div>
+            </a>
+
+            <!-- Sub articles -->
+            {subHero.length > 0 && (
+              <div class="hero-sub">
+                {subHero.map(post => (
+                  <ArticleCard
+                    href={`/${post.collection}/${post.id}`}
+                    title={post.data.title}
+                    description={post.data.description}
+                    pubDate={post.data.pubDate}
+                    category={post.collection}
+                    coverImage={post.data.coverImage}
+                  />
+                ))}
+              </div>
+            )}
+          </section>
+        )}
+
+        <!-- Section divider -->
+        <div class="section-head">
+          <span>最新記事</span>
+        </div>
+
+        <!-- Article grid -->
+        {grid.length > 0 ? (
+          <div class="card-grid">
+            {grid.map(post => (
+              <ArticleCard
+                href={`/${post.collection}/${post.id}`}
+                title={post.data.title}
+                description={post.data.description}
+                pubDate={post.data.pubDate}
+                category={post.collection}
+                coverImage={post.data.coverImage}
+              />
+            ))}
+          </div>
+        ) : allPosts.length > 0 && (
+          <div class="card-grid">
+            {allPosts.slice(1).map(post => (
+              <ArticleCard
+                href={`/${post.collection}/${post.id}`}
+                title={post.data.title}
+                description={post.data.description}
+                pubDate={post.data.pubDate}
+                category={post.collection}
+                coverImage={post.data.coverImage}
+              />
+            ))}
+          </div>
+        )}
+
+      </main>
+
+      <div class="page-sidebar">
+        <Sidebar />
+      </div>
+    </div>
+
+  </div>
+
+</BaseLayout>
+
+<style>
+  .page-outer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 0;
+  }
+
+  .page-layout {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .page-main { min-width: 0; }
+
+  .page-sidebar {
+    position: sticky;
+    top: calc(52px + 1.5rem);
+  }
+
+  /* ===== Hero section ===== */
+  .hero-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 0;
+    border: 1.5px solid var(--ash);
+    margin-bottom: 2rem;
+    background: #fff;
+  }
+
+  /* Hero main */
+  .hero-main {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--ink);
+    border-right: 1.5px solid var(--ash);
+    transition: opacity 0.15s;
+  }
+
+  .hero-main:hover { opacity: 0.85; }
+  .hero-main:hover .hero-title { border-bottom-color: var(--green-bright); }
+
+  .hero-thumb {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #1a1714;
+    flex-shrink: 0;
+  }
+
+  .hero-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .thumb-placeholder {
+    width: 100%;
+    height: 100%;
+    background: #1a1714;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    position: relative;
+  }
+
+  .thumb-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 4px,
+      rgba(255,255,255,0.012) 4px,
+      rgba(255,255,255,0.012) 5px
+    );
+  }
+
+  .thumb-cat {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--green);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .thumb-ttl {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.45;
+  }
+
+  .hero-body {
+    padding: 1.25rem 1.5rem 1.5rem;
+  }
+
+  .hero-cat {
+    font-family: var(--sans);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-weight: 900;
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+    border-bottom: 1.5px solid transparent;
+    padding-bottom: 0.1rem;
+    transition: border-color 0.15s;
+  }
+
+  .hero-desc {
+    font-size: 0.85rem;
+    color: var(--ink-2);
+    line-height: 1.7;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-date {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    color: var(--muted);
+  }
+
+  /* Hero sub */
+  .hero-sub {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-sub :global(.card) {
+    border: none;
+    border-bottom: 1.5px solid var(--ash);
+    flex: 1;
+  }
+
+  .hero-sub :global(.card:last-child) {
+    border-bottom: none;
+  }
+
+  /* ===== Section head ===== */
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .section-head span {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--dark);
+    padding: 0.3rem 0.75rem;
+  }
+
+  .section-head::after {
+    content: '';
+    flex: 1;
+    height: 1.5px;
+    background: var(--ash);
+  }
+
+  /* ===== Card grid ===== */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1.5px solid var(--ash);
+    margin-bottom: 3rem;
+  }
+
+  .card-grid :global(.card) {
+    border: none;
+    border-right: 1.5px solid var(--ash);
+    border-bottom: 1.5px solid var(--ash);
+  }
+
+  /* Remove right border from last in row */
+  .card-grid :global(.card:nth-child(3n)) {
+    border-right: none;
+  }
+
+  /* Remove bottom border from last row */
+  .card-grid :global(.card:nth-last-child(-n+3):nth-child(3n+1)),
+  .card-grid :global(.card:nth-last-child(-n+3):nth-child(3n+2)),
+  .card-grid :global(.card:nth-last-child(-n+2):nth-child(3n+1)),
+  .card-grid :global(.card:last-child) {
+    border-bottom: none;
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 1024px) {
+    .page-layout {
+      grid-template-columns: 1fr;
+    }
+    .page-sidebar { position: static; }
+  }
+
+  @media (max-width: 768px) {
+    .hero-section {
+      grid-template-columns: 1fr;
+    }
+    .hero-main { border-right: none; border-bottom: 1.5px solid var(--ash); }
+    .hero-sub { flex-direction: row; }
+    .hero-sub :global(.card) { border-right: 1.5px solid var(--ash); border-bottom: none; }
+    .hero-sub :global(.card:last-child) { border-right: none; }
+    .card-grid { grid-template-columns: repeat(2, 1fr); }
+    .card-grid :global(.card:nth-child(3n)) { border-right: 1.5px solid var(--ash); }
+    .card-grid :global(.card:nth-child(2n)) { border-right: none; }
+  }
+
+  @media (max-width: 560px) {
+    .hero-sub { flex-direction: column; }
+    .hero-sub :global(.card) { border-right: none; border-bottom: 1.5px solid var(--ash); }
+    .card-grid { grid-template-columns: 1fr; }
+    .card-grid :global(.card) { border-right: none !important; }
+  }
+</style>

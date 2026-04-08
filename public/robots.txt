@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dale-media-jp.github.io/sitemap.xml
