@@ -1,0 +1,212 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const categories = [
+  { id: 'ai-basics', label: 'AI入門',    description: '主婦・シニアの方向けに、AIをやさしく解説します。' },
+  { id: 'biz-ai',    label: 'ビジネスAI', description: '士業・中小企業の業務効率化に役立つAI活用術を紹介します。' },
+  { id: 'cases',     label: '導入事例',   description: 'Dale MediaによるAI受託開発の実績・事例を公開しています。' },
+] as const;
+
+const sections = await Promise.all(
+  categories.map(async cat => ({
+    ...cat,
+    posts: (await getCollection(cat.id, ({ data }) => !data.draft))
+      .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()),
+  }))
+);
+---
+
+<BaseLayout title="サイトマップ" description="Dale Mediaの全記事一覧です。">
+  <div class="page-outer">
+
+    <div class="page-header">
+      <nav class="breadcrumb">
+        <a href="/">Dale Media</a>
+        <span>/</span>
+        <span>サイトマップ</span>
+      </nav>
+      <h1 class="page-title">サイトマップ</h1>
+    </div>
+
+    <div class="sitemap-body">
+
+      <!-- Static pages -->
+      <section class="sm-section">
+        <h2 class="sm-cat-title">ページ</h2>
+        <ul class="sm-list">
+          <li><a href="/">トップページ</a></li>
+          <li><a href="/about">運営者情報</a></li>
+          <li><a href="/privacy">プライバシーポリシー</a></li>
+          <li><a href="/contact">お問い合わせ</a></li>
+        </ul>
+      </section>
+
+      <!-- Article categories -->
+      {sections.map(section => (
+        <section class="sm-section">
+          <h2 class="sm-cat-title">
+            <a href={`/${section.id}`}>{section.label}</a>
+            <span class="sm-count">{section.posts.length}件</span>
+          </h2>
+          <p class="sm-desc">{section.description}</p>
+          {section.posts.length === 0 ? (
+            <p class="sm-empty">記事はまだありません。</p>
+          ) : (
+            <ul class="sm-list">
+              {section.posts.map(post => (
+                <li>
+                  <a href={`/${post.collection}/${post.id}`}>
+                    {post.data.title}
+                  </a>
+                  <time datetime={post.data.pubDate.toISOString()}>
+                    {post.data.pubDate.toLocaleDateString('ja-JP', {
+                      year: 'numeric', month: '2-digit', day: '2-digit',
+                    }).replace(/\//g, '.')}
+                  </time>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+      ))}
+
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-outer {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 5rem;
+  }
+
+  .page-header {
+    padding-bottom: 1.25rem;
+    border-bottom: 1.5px solid var(--ash);
+    margin-bottom: 2rem;
+  }
+
+  .breadcrumb {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .breadcrumb a { color: var(--muted); }
+  .breadcrumb a:hover { color: var(--green); }
+
+  .page-title {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 900;
+  }
+
+  .page-title::after {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 3px;
+    background: var(--green);
+    margin-top: 0.5rem;
+  }
+
+  .sitemap-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .sm-section {
+    border: 1.5px solid var(--ash);
+    border-top: none;
+    background: #fff;
+    padding: 1.5rem 1.75rem;
+  }
+
+  .sm-section:first-child {
+    border-top: 1.5px solid var(--ash);
+  }
+
+  .sm-cat-title {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--dark);
+    padding: 0.4rem 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .sm-cat-title a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .sm-cat-title a:hover { color: var(--green); }
+
+  .sm-count {
+    font-size: 0.6rem;
+    color: #aaa;
+    font-weight: 400;
+  }
+
+  .sm-desc {
+    font-size: 0.82rem;
+    color: var(--ink-2);
+    margin-bottom: 1rem;
+  }
+
+  .sm-empty {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+
+  .sm-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .sm-list li {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--ash);
+  }
+
+  .sm-list li:last-child { border-bottom: none; }
+
+  .sm-list a {
+    font-family: var(--serif);
+    font-size: 0.9rem;
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.15s;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .sm-list a:hover { color: var(--green); }
+
+  .sm-list time {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    color: var(--muted);
+    flex-shrink: 0;
+  }
+</style>
