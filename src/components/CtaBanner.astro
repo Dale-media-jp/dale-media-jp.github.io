@@ -1,0 +1,129 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  buttonText?: string;
+  buttonHref?: string;
+}
+
+const {
+  title = 'AI駆動開発で業務を自動化しませんか？',
+  description = '株式会社Daleでは、政府公開APIの活用からAIツールの設計・開発・運用まで一貫して支援しています。まずはお気軽にご相談ください。',
+  buttonText = '無料相談はこちら',
+  buttonHref = 'https://www.dale-ai.com/',
+} = Astro.props;
+---
+
+<aside class="cta">
+  <div class="cta-inner">
+    <div class="cta-badge">CONTACT</div>
+    <h3 class="cta-title">{title}</h3>
+    <p class="cta-desc">{description}</p>
+    <a href={buttonHref} class="cta-button" target="_blank" rel="noopener noreferrer">
+      {buttonText}
+      <span class="cta-arrow">&rarr;</span>
+    </a>
+    <p class="cta-sub">株式会社Dale｜FDE体制によるAI受託開発</p>
+  </div>
+</aside>
+
+<style>
+  .cta {
+    margin: 2.5rem 0 0;
+    border: 1.5px solid var(--ash);
+    background: var(--dark);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--green), var(--green-bright), var(--green));
+  }
+
+  .cta-inner {
+    padding: 2.5rem 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-badge {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: var(--green-bright);
+    border: 1px solid rgba(63, 163, 85, 0.3);
+    padding: 0.2rem 0.8rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .cta-title {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-desc {
+    font-size: 0.85rem;
+    color: #999;
+    line-height: 1.8;
+    max-width: 540px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #fff;
+    background: var(--green);
+    padding: 0.75rem 2rem;
+    border: none;
+    transition: background 0.2s, transform 0.15s;
+    text-decoration: none;
+  }
+
+  .cta-button:hover {
+    background: var(--green-bright);
+    transform: translateY(-1px);
+  }
+
+  .cta-arrow {
+    transition: transform 0.2s;
+  }
+
+  .cta-button:hover .cta-arrow {
+    transform: translateX(3px);
+  }
+
+  .cta-sub {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    color: #555;
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 640px) {
+    .cta-inner {
+      padding: 2rem 1.25rem;
+    }
+
+    .cta-title {
+      font-size: 1.05rem;
+    }
+  }
+</style>
