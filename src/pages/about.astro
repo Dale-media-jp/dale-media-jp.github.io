@@ -1,0 +1,519 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const siteOrigin = Astro.site?.href.replace(/\/$/, '') ?? 'https://dale-media-jp.github.io';
+
+const person = {
+  '@type': 'Person',
+  '@id': `${siteOrigin}/about#person`,
+  name: '鈴木 輝',
+  alternateName: 'Hikaru Suzuki',
+  jobTitle: '代表取締役社長 兼 CEO',
+  image: `${siteOrigin}/about/ceo.png`,
+  description: '株式会社Dale 代表取締役社長。SCSK株式会社（住友商事グループ）にて大手企業のIT・システム開発に従事した後、AI領域で起業。Anthropic主催 Build with Claude ハッカソン アジア大会で最優秀賞を受賞。日経MJ掲載。',
+  alumniOf: {
+    '@type': 'CollegeOrUniversity',
+    name: '青山学院大学',
+  },
+  award: [
+    'Anthropic Build with Claude ハッカソン アジア大会 最優秀賞',
+  ],
+  worksFor: { '@id': `${siteOrigin}/about#organization` },
+  knowsAbout: [
+    '生成AI',
+    'Claude',
+    'AI受託開発',
+    'DXコンサルティング',
+    'SaaS開発',
+  ],
+  sameAs: [
+    'https://www.dale-ai.com/',
+  ],
+};
+
+const organization = {
+  '@type': 'Organization',
+  '@id': `${siteOrigin}/about#organization`,
+  name: '株式会社Dale',
+  url: 'https://www.dale-ai.com/',
+  logo: `${siteOrigin}/ogp-default.png`,
+  foundingDate: '2025-12',
+  founder: { '@id': `${siteOrigin}/about#person` },
+  taxID: '6020001166270',
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'JP',
+    addressRegion: '神奈川県',
+    addressLocality: '横浜市保土ヶ谷区',
+    streetAddress: '仏向町1416-17',
+  },
+  description: 'AI・DXコンサルティング、SaaSプロダクト開発・提供、AI技術の研究開発を行う企業。',
+  sameAs: ['https://www.dale-ai.com/'],
+};
+
+const webPage = {
+  '@type': 'AboutPage',
+  '@id': `${siteOrigin}/about`,
+  url: `${siteOrigin}/about`,
+  name: '運営者情報 | Dale Media',
+  description: 'Dale Mediaの運営会社・代表者プロフィール。株式会社Dale 代表取締役 鈴木輝（青山学院大学卒、SCSK出身、Anthropicハッカソンアジア大会最優秀賞、日経MJ掲載）。',
+  about: { '@id': `${siteOrigin}/about#person` },
+  publisher: { '@id': `${siteOrigin}/about#organization` },
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [person, organization, webPage],
+};
+---
+
+<BaseLayout
+  title="運営者情報"
+  description="Dale Mediaの運営会社・代表者プロフィール。株式会社Dale 代表取締役 鈴木輝（青山学院大学卒、SCSK出身、Anthropicハッカソンアジア大会最優秀賞、日経MJ掲載）が監修するAIメディアです。"
+  canonicalUrl={`${siteOrigin}/about`}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <div class="page-outer">
+
+    <div class="page-header">
+      <nav class="breadcrumb">
+        <a href="/">Dale Media</a>
+        <span>/</span>
+        <span>運営者情報</span>
+      </nav>
+      <h1 class="page-title">運営者情報</h1>
+      <p class="page-lead">
+        Dale Mediaは、生成AIの実装現場でプロダクトを作る<strong>株式会社Dale</strong>が運営するAI情報メディアです。
+      </p>
+    </div>
+
+    <!-- ===== 代表プロフィール ===== -->
+    <section class="sec">
+      <h2 class="sec-title">代表プロフィール</h2>
+
+      <article class="profile" itemscope itemtype="https://schema.org/Person">
+        <header class="profile-head">
+          <div class="profile-photo">
+            <img src="/about/ceo.png" alt="鈴木 輝（株式会社Dale 代表取締役社長 兼 CEO）" itemprop="image" loading="eager" />
+          </div>
+          <div class="profile-name-block">
+            <p class="profile-role">代表取締役社長 兼 CEO / Founder</p>
+            <h3 class="profile-name" itemprop="name">鈴木 輝</h3>
+            <p class="profile-name-en" itemprop="alternateName">Hikaru Suzuki</p>
+          </div>
+        </header>
+
+        <div class="profile-body" itemprop="description">
+          <p>
+            青山学院大学卒業後、<strong>SCSK株式会社（住友商事グループ）</strong>にて大手企業のIT・システム開発プロジェクトに従事。
+            エンタープライズの現場で培った業務理解と、最先端のAI技術を組み合わせた事業創出を志し、
+            <strong>株式会社Daleを設立・代表取締役社長 兼 CEOに就任</strong>。
+          </p>
+          <p>
+            2026年、生成AIの世界的リーダーである<strong>Anthropic主催「Build with Claude ハッカソン アジア大会」で最優秀賞を受賞</strong>。
+            アジア各国の開発者が競う舞台で、Claudeを用いたプロダクト実装力が公式に評価された。
+          </p>
+          <p>
+            自社では、社長業務を生成AIで支援するSaaSプロダクト「<strong>社長スタジオ</strong>」を開発・提供。
+            その他、AI受託開発・DXコンサルティングを通じて、スタートアップから大企業まで幅広いクライアントのAI活用を支援している。
+          </p>
+        </div>
+
+        <!-- 権威性ブロック -->
+        <dl class="cred">
+          <div class="cred-row">
+            <dt>学歴</dt>
+            <dd itemprop="alumniOf">青山学院大学</dd>
+          </div>
+          <div class="cred-row">
+            <dt>職歴</dt>
+            <dd>
+              SCSK株式会社（住友商事グループ）<br />
+              ／ 株式会社Dale 代表取締役社長 兼 CEO（現職）
+            </dd>
+          </div>
+          <div class="cred-row">
+            <dt>受賞</dt>
+            <dd itemprop="award">
+              <span class="award-badge">最優秀賞</span>
+              Anthropic 主催「Build with Claude ハッカソン」アジア大会
+            </dd>
+          </div>
+          <div class="cred-row">
+            <dt>メディア掲載</dt>
+            <dd>
+              日経MJ（2026年4月27日）
+            </dd>
+          </div>
+          <div class="cred-row">
+            <dt>専門領域</dt>
+            <dd>生成AI実装 ／ Claude活用 ／ AI受託開発 ／ DXコンサルティング ／ SaaS開発</dd>
+          </div>
+        </dl>
+      </article>
+    </section>
+
+    <!-- ===== 運営会社 ===== -->
+    <section class="sec">
+      <h2 class="sec-title">運営会社</h2>
+      <table class="company-table">
+        <tbody>
+          <tr>
+            <th>会社名</th>
+            <td>株式会社Dale（Dale Inc.）</td>
+          </tr>
+          <tr>
+            <th>代表者</th>
+            <td>代表取締役社長 兼 CEO　鈴木 輝</td>
+          </tr>
+          <tr>
+            <th>設立</th>
+            <td>2025年12月</td>
+          </tr>
+          <tr>
+            <th>所在地</th>
+            <td>神奈川県横浜市保土ヶ谷区仏向町1416-17</td>
+          </tr>
+          <tr>
+            <th>法人番号</th>
+            <td>6020001166270</td>
+          </tr>
+          <tr>
+            <th>事業内容</th>
+            <td>
+              AI・DXコンサルティング ／ SaaSプロダクト開発・提供 ／ AI技術の研究開発
+            </td>
+          </tr>
+          <tr>
+            <th>主要サービス</th>
+            <td>
+              社長スタジオ（AIアバター動画生成SaaS）／ AI受託開発・FDE支援 ／ Dale Media
+            </td>
+          </tr>
+          <tr>
+            <th>公式サイト</th>
+            <td>
+              <a href="https://www.dale-ai.com/" target="_blank" rel="noopener">https://www.dale-ai.com/</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ===== お問い合わせ ===== -->
+    <section class="sec contact-cta">
+      <h2 class="sec-title">お問い合わせ</h2>
+      <p>
+        AI受託開発・DXコンサルティング、メディア取材、記事内容の訂正依頼などは、運営会社の公式サイトよりお問い合わせください。
+      </p>
+      <a class="cta-btn" href="https://www.dale-ai.com/contact" target="_blank" rel="noopener">
+        株式会社Daleへ問い合わせる
+      </a>
+    </section>
+
+  </div>
+</BaseLayout>
+
+<style>
+  .page-outer {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 5rem;
+  }
+
+  /* ===== Header ===== */
+  .page-header {
+    padding-bottom: 1.5rem;
+    border-bottom: 1.5px solid var(--ash);
+    margin-bottom: 2.5rem;
+  }
+
+  .breadcrumb {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .breadcrumb a { color: var(--muted); }
+  .breadcrumb a:hover { color: var(--green); }
+
+  .page-title {
+    font-family: var(--serif);
+    font-size: 1.7rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+  }
+
+  .page-title::after {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 3px;
+    background: var(--green);
+    margin-top: 0.5rem;
+  }
+
+  .page-lead {
+    font-size: 0.92rem;
+    color: var(--ink-2);
+    line-height: 1.85;
+  }
+
+  .page-lead strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  /* ===== Section ===== */
+  .sec {
+    margin-bottom: 3rem;
+  }
+
+  .sec-title {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--dark);
+    padding: 0.4rem 0.85rem;
+    display: inline-block;
+    margin-bottom: 1.25rem;
+  }
+
+  /* ===== Profile ===== */
+  .profile {
+    border: 1.5px solid var(--ash);
+    background: #fff;
+  }
+
+  .profile-head {
+    background: var(--dark);
+    color: #fff;
+    padding: 1.75rem 2rem;
+    border-bottom: 3px solid var(--green);
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+  }
+
+  .profile-photo {
+    flex-shrink: 0;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--green);
+    background: #fff;
+  }
+
+  .profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .profile-name-block {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .profile-role {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green-bright);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  .profile-name {
+    font-family: var(--serif);
+    font-size: 1.85rem;
+    font-weight: 900;
+    line-height: 1.2;
+    color: #fff;
+    margin-bottom: 0.25rem;
+    letter-spacing: 0.05em;
+  }
+
+  .profile-name-en {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.1em;
+  }
+
+  .profile-body {
+    padding: 1.75rem 2rem 1.5rem;
+    border-bottom: 1px solid var(--ash);
+  }
+
+  .profile-body p {
+    font-size: 0.92rem;
+    line-height: 1.95;
+    color: var(--ink-2);
+    margin-bottom: 1rem;
+  }
+
+  .profile-body p:last-child { margin-bottom: 0; }
+
+  .profile-body strong {
+    color: var(--ink);
+    font-weight: 700;
+    background: linear-gradient(transparent 65%, rgba(63, 163, 85, 0.18) 65%);
+  }
+
+  /* ===== Credentials ===== */
+  .cred {
+    padding: 0.5rem 0;
+  }
+
+  .cred-row {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--ash);
+    align-items: baseline;
+  }
+
+  .cred-row:last-child { border-bottom: none; }
+
+  .cred-row dt {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .cred-row dd {
+    font-size: 0.9rem;
+    color: var(--ink);
+    line-height: 1.7;
+  }
+
+  .award-badge {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #fff;
+    background: var(--green);
+    padding: 0.2rem 0.55rem;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+  }
+
+  /* ===== Company table ===== */
+  .company-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border: 1.5px solid var(--ash);
+  }
+
+  .company-table th,
+  .company-table td {
+    text-align: left;
+    padding: 0.95rem 1.25rem;
+    border-bottom: 1px solid var(--ash);
+    font-size: 0.88rem;
+    line-height: 1.7;
+    vertical-align: top;
+  }
+
+  .company-table tr:last-child th,
+  .company-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .company-table th {
+    width: 140px;
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: var(--paper);
+    border-right: 1px solid var(--ash);
+  }
+
+  .company-table td a {
+    color: var(--green);
+    border-bottom: 1px solid var(--green);
+  }
+
+  .company-table td a:hover {
+    color: var(--green-bright);
+  }
+
+  /* ===== Contact CTA ===== */
+  .contact-cta p {
+    font-size: 0.9rem;
+    color: var(--ink-2);
+    line-height: 1.85;
+    margin-bottom: 1.25rem;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #fff;
+    background: var(--dark);
+    padding: 0.85rem 1.75rem;
+    border: 1.5px solid var(--dark);
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .cta-btn:hover {
+    background: var(--green);
+    border-color: var(--green);
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 640px) {
+    .profile-head {
+      padding: 1.5rem 1.25rem;
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+    }
+    .profile-photo {
+      width: 110px;
+      height: 110px;
+    }
+    .profile-name { font-size: 1.5rem; }
+    .profile-body { padding: 1.25rem; }
+    .cred-row {
+      grid-template-columns: 1fr;
+      gap: 0.35rem;
+      padding: 1rem 1.25rem;
+    }
+    .company-table th,
+    .company-table td {
+      display: block;
+      width: 100%;
+      border-right: none;
+    }
+    .company-table th {
+      padding-bottom: 0.35rem;
+      border-bottom: none;
+    }
+  }
+</style>

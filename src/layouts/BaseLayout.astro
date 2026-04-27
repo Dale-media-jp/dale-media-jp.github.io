@@ -17,7 +17,7 @@ const {
 
 const siteTitle = title === 'Dale Media' ? title : `${title} | Dale Media`;
 const currentPath = Astro.url.pathname;
-const siteOrigin = 'https://dale-media-jp.github.io';
+const siteOrigin = Astro.site?.href.replace(/\/$/, '') ?? 'https://dale-media-jp.github.io';
 const canonical = canonicalUrl ?? `${siteOrigin}${currentPath}`;
 const ogImageUrl = ogImage ?? `${siteOrigin}/ogp-default.png`;
 
