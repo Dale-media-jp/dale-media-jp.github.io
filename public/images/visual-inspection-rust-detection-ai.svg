@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0e1f13"/>
+      <stop offset="100%" stop-color="#162d1c"/>
+    </linearGradient>
+    <pattern id="g3" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(63,163,85,0.08)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg3)"/>
+  <rect width="1200" height="630" fill="url(#g3)"/>
+  <rect x="0" y="0" width="14" height="630" fill="#2d7a3e"/>
+  <rect x="60" y="60" width="120" height="3" fill="#3fa355"/>
+  <text x="60" y="105" font-family="Inter, 'Noto Sans JP', sans-serif" font-size="22" font-weight="600" fill="#3fa355" letter-spacing="4">CASE STUDY ／ MANUFACTURING</text>
+  <text x="60" y="240" font-family="'Noto Sans JP', sans-serif" font-size="60" font-weight="900" fill="#ffffff">外観検査を AI で</text>
+  <text x="60" y="320" font-family="'Noto Sans JP', sans-serif" font-size="60" font-weight="900" fill="#ffffff">自動化</text>
+  <text x="60" y="430" font-family="'Noto Sans JP', sans-serif" font-size="42" font-weight="700" fill="#3fa355">時間 −70% / 見逃し −50%</text>
+  <text x="60" y="495" font-family="'Noto Sans JP', sans-serif" font-size="22" font-weight="500" fill="rgba(255,255,255,0.65)">錆・汚れ・キズの画像認識による品質管理</text>
+  <line x1="60" y1="555" x2="180" y2="555" stroke="#3fa355" stroke-width="2"/>
+  <text x="60" y="585" font-family="Inter, 'Noto Sans JP', sans-serif" font-size="18" font-weight="700" fill="#ffffff" letter-spacing="3">Dale Media</text>
+  <g transform="translate(880, 215)">
+    <rect x="40" y="40" width="120" height="120" fill="none" stroke="#3fa355" stroke-width="2"/>
+    <rect x="60" y="60" width="80" height="80" fill="rgba(45,122,62,0.2)"/>
+    <circle cx="100" cy="100" r="20" fill="none" stroke="#3fa355" stroke-width="3"/>
+    <line x1="115" y1="115" x2="155" y2="155" stroke="#3fa355" stroke-width="3"/>
+  </g>
+</svg>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg6" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0e1f13"/>
+      <stop offset="100%" stop-color="#162d1c"/>
+    </linearGradient>
+    <pattern id="g6" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(63,163,85,0.08)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg6)"/>
+  <rect width="1200" height="630" fill="url(#g6)"/>
+  <rect x="0" y="0" width="14" height="630" fill="#2d7a3e"/>
+  <rect x="60" y="60" width="120" height="3" fill="#3fa355"/>
+  <text x="60" y="105" font-family="Inter, 'Noto Sans JP', sans-serif" font-size="22" font-weight="600" fill="#3fa355" letter-spacing="4">CASE STUDY ／ CONSTRUCTION</text>
+  <text x="60" y="240" font-family="'Noto Sans JP', sans-serif" font-size="60" font-weight="900" fill="#ffffff">図面解析AI ×</text>
+  <text x="60" y="320" font-family="'Noto Sans JP', sans-serif" font-size="60" font-weight="900" fill="#ffffff">BIM施工管理</text>
+  <text x="60" y="430" font-family="'Noto Sans JP', sans-serif" font-size="42" font-weight="700" fill="#3fa355">計画 −50% / 手戻り −20%</text>
+  <text x="60" y="495" font-family="'Noto Sans JP', sans-serif" font-size="22" font-weight="500" fill="rgba(255,255,255,0.65)">図面間の不整合を施工前に自動検出</text>
+  <line x1="60" y1="555" x2="180" y2="555" stroke="#3fa355" stroke-width="2"/>
+  <text x="60" y="585" font-family="Inter, 'Noto Sans JP', sans-serif" font-size="18" font-weight="700" fill="#ffffff" letter-spacing="3">Dale Media</text>
+  <g transform="translate(880, 235)">
+    <polygon points="100,30 30,80 30,160 100,210 170,160 170,80" fill="none" stroke="#3fa355" stroke-width="2"/>
+    <line x1="100" y1="30" x2="100" y2="210" stroke="rgba(63,163,85,0.4)" stroke-width="1"/>
+    <line x1="30" y1="80" x2="170" y2="80" stroke="rgba(63,163,85,0.4)" stroke-width="1"/>
+    <line x1="30" y1="160" x2="170" y2="160" stroke="rgba(63,163,85,0.4)" stroke-width="1"/>
+    <line x1="100" y1="30" x2="30" y2="160" stroke="rgba(63,163,85,0.4)" stroke-width="1"/>
+    <line x1="100" y1="30" x2="170" y2="160" stroke="rgba(63,163,85,0.4)" stroke-width="1"/>
+  </g>
+</svg>

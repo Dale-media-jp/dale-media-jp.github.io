@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg7" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0e1f13"/>
+      <stop offset="100%" stop-color="#162d1c"/>
+    </linearGradient>
+    <pattern id="g7" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(63,163,85,0.08)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg7)"/>
+  <rect width="1200" height="630" fill="url(#g7)"/>
+  <rect x="0" y="0" width="14" height="630" fill="#2d7a3e"/>
+  <rect x="60" y="60" width="120" height="3" fill="#3fa355"/>
+  <text x="60" y="105" font-family="Inter, 'Noto Sans JP', sans-serif" font-size="22" font-weight="600" fill="#3fa355" letter-spacing="4">CASE STUDY ／ EDUCATION</text>
+  <text x="60" y="240" font-family="'Noto Sans JP', sans-serif" font-size="60" font-weight="900" fill="#ffffff">大学窓口を</text>
+  <text x="60" y="320" font-family="'Noto Sans JP', sans-serif" font-size="60" font-weight="900" fill="#ffffff">RAG×AIで24時間化</text>
+  <text x="60" y="430" font-family="'Noto Sans JP', sans-serif" font-size="42" font-weight="700" fill="#3fa355">問い合わせメール −40%</text>
+  <text x="60" y="495" font-family="'Noto Sans JP', sans-serif" font-size="22" font-weight="500" fill="rgba(255,255,255,0.65)">学内マニュアル・規程をAIで横断検索</text>
+  <line x1="60" y1="555" x2="180" y2="555" stroke="#3fa355" stroke-width="2"/>
+  <text x="60" y="585" font-family="Inter, 'Noto Sans JP', sans-serif" font-size="18" font-weight="700" fill="#ffffff" letter-spacing="3">Dale Media</text>
+  <g transform="translate(880, 235)">
+    <rect x="20" y="40" width="120" height="80" rx="10" fill="rgba(45,122,62,0.3)" stroke="#3fa355" stroke-width="2"/>
+    <polygon points="40,120 40,140 60,120" fill="rgba(45,122,62,0.3)" stroke="#3fa355" stroke-width="2"/>
+    <line x1="35" y1="70" x2="125" y2="70" stroke="#3fa355" stroke-width="1"/>
+    <line x1="35" y1="90" x2="125" y2="90" stroke="#3fa355" stroke-width="1"/>
+    <line x1="35" y1="110" x2="105" y2="110" stroke="#3fa355" stroke-width="1"/>
+    <text x="80" y="180" font-family="Inter, sans-serif" font-size="22" font-weight="700" fill="#3fa355" text-anchor="middle">24/7</text>
+  </g>
+</svg>
