@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0e1f13"/>
+      <stop offset="100%" stop-color="#162d1c"/>
+    </linearGradient>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(63,163,85,0.08)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <rect x="0" y="0" width="14" height="630" fill="#2d7a3e"/>
+  <rect x="60" y="60" width="120" height="3" fill="#3fa355"/>
+
+  <text x="60" y="105" font-family="Inter, 'Noto Sans JP', sans-serif"
+        font-size="22" font-weight="600" fill="#3fa355" letter-spacing="4">
+    BIZ-AI ／ COMPARISON
+  </text>
+
+  <text x="60" y="220" font-family="'Noto Sans JP', sans-serif"
+        font-size="56" font-weight="900" fill="#ffffff">
+    AIアバター動画SaaS
+  </text>
+  <text x="60" y="295" font-family="'Noto Sans JP', sans-serif"
+        font-size="56" font-weight="900" fill="#ffffff">
+    徹底比較 2026
+  </text>
+
+  <text x="60" y="395" font-family="'Noto Sans JP', sans-serif"
+        font-size="34" font-weight="700" fill="#3fa355">
+    HeyGen × Synthesia × D-ID
+  </text>
+  <text x="60" y="445" font-family="'Noto Sans JP', sans-serif"
+        font-size="34" font-weight="700" fill="#3fa355">
+    × 国産『社長スタジオ』
+  </text>
+
+  <text x="60" y="510" font-family="'Noto Sans JP', sans-serif"
+        font-size="22" font-weight="500" fill="rgba(255,255,255,0.65)">
+    経営者の発信・採用・IR・海外進出を経営者目線で評価
+  </text>
+
+  <line x1="60" y1="555" x2="180" y2="555" stroke="#3fa355" stroke-width="2"/>
+  <text x="60" y="585" font-family="Inter, 'Noto Sans JP', sans-serif"
+        font-size="18" font-weight="700" fill="#ffffff" letter-spacing="3">
+    Dale Media
+  </text>
+
+  <g transform="translate(880, 215)">
+    <rect x="40" y="40" width="60" height="80" rx="6" fill="rgba(63,163,85,0.18)" stroke="#3fa355" stroke-width="1.5"/>
+    <rect x="115" y="20" width="60" height="100" rx="6" fill="rgba(63,163,85,0.28)" stroke="#3fa355" stroke-width="1.5"/>
+    <rect x="190" y="50" width="60" height="70" rx="6" fill="rgba(63,163,85,0.18)" stroke="#3fa355" stroke-width="1.5"/>
+    <rect x="78" y="155" width="135" height="6" fill="#3fa355" opacity="0.6"/>
+    <rect x="65" y="175" width="160" height="3" fill="#3fa355" opacity="0.4"/>
+    <rect x="80" y="190" width="125" height="3" fill="#3fa355" opacity="0.4"/>
+  </g>
+</svg>
