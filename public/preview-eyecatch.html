@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>キャッチ画像レイアウト案</title>
+<style>
+  body {
+    margin: 0;
+    padding: 48px 32px 80px;
+    background: #f5f2ec;
+    color: #162d1c;
+    font-family: 'Noto Serif JP', serif;
+  }
+  h1 {
+    font-size: 1.8rem;
+    margin: 0 0 8px;
+    letter-spacing: 0.04em;
+  }
+  .lede {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.95rem;
+    color: rgba(22,45,28,0.7);
+    margin: 0 0 48px;
+    max-width: 720px;
+    line-height: 1.7;
+  }
+  .grid {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .item h2 {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    color: #2d7a3e;
+    margin: 0 0 6px;
+    text-transform: uppercase;
+  }
+  .item h3 {
+    font-size: 1.4rem;
+    font-weight: 900;
+    margin: 0 0 8px;
+  }
+  .item p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.88rem;
+    color: rgba(22,45,28,0.65);
+    margin: 0 0 20px;
+    line-height: 1.7;
+  }
+  .item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1.5px solid rgba(22,45,28,0.2);
+  }
+  .meta {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.78rem;
+    color: rgba(22,45,28,0.55);
+    margin-top: 8px;
+  }
+</style>
+</head>
+<body>
+  <h1>キャッチ画像レイアウト案 ／ 5パターン</h1>
+  <p class="lede">既存SVGの「ダーク背景＋左サイドバー＋右の小さな図形」テンプレを廃止し、5種類のレイアウトに刷新する案です。OKならこの5パターンを15記事に割り振ります。</p>
+
+  <div class="grid">
+
+    <div class="item">
+      <h2>A ／ Typography</h2>
+      <h3>タイポグラフィ主役</h3>
+      <p>ペーパーベースの明るい背景に、巨大なセリフ書体タイトルを主役に。装飾は最小、本のような佇まい。<br><strong>例：</strong>多言語AI動画で世界へ（海外進出）</p>
+      <img src="/images/_preview/A-typography.svg" alt="Pattern A">
+      <div class="meta">背景: クリーム (#efe8d8) ／ アクセント: ダークインク + テラコッタ</div>
+    </div>
+
+    <div class="item">
+      <h2>B ／ KPI</h2>
+      <h3>KPI主役</h3>
+      <p>1つの数字をドカンと主役に。雑誌の特集ページのように余白で見せる。導入事例向き。<br><strong>例：</strong>建築業AI見積り（−60%）</p>
+      <img src="/images/_preview/B-kpi.svg" alt="Pattern B">
+      <div class="meta">背景: チャコール ／ アクセント: マスタードイエロー</div>
+    </div>
+
+    <div class="item">
+      <h2>C ／ Asymmetry</h2>
+      <h3>アシンメトリ分割</h3>
+      <p>斜めの2分割で動きを出し、デバイスやUIモックを片側に置く。発信・コンテンツ系の記事向き。<br><strong>例：</strong>経営者×ショート動画自動化</p>
+      <img src="/images/_preview/C-asymmetry.svg" alt="Pattern C">
+      <div class="meta">背景: テラコッタ × クリーム（斜め分割）</div>
+    </div>
+
+    <div class="item">
+      <h2>D ／ Magazine</h2>
+      <h3>雑誌風レイアウト</h3>
+      <p>枠線・小ラベル・ページ番号などを配置して、紙の雑誌のような表情に。色を緑から離して差別化。<br><strong>例：</strong>RAGで議事録から記事自動生成</p>
+      <img src="/images/_preview/D-magazine.svg" alt="Pattern D">
+      <div class="meta">背景: バーガンディ ／ アクセント: ペーパー</div>
+    </div>
+
+    <div class="item">
+      <h2>E ／ Pattern</h2>
+      <h3>抽象パターン主役</h3>
+      <p>大胆な色面の重なりでアート寄りに。記事テーマに依存せず汎用的に使える抽象ビジュアル。<br><strong>例：</strong>外観検査AI（製造業）</p>
+      <img src="/images/_preview/E-pattern.svg" alt="Pattern E">
+      <div class="meta">背景: ディープティール ／ サンド × テラコッタの色面</div>
+    </div>
+
+  </div>
+</body>
+</html>

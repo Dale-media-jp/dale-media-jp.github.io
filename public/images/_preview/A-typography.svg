@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" preserveAspectRatio="xMidYMid slice">
+  <rect width="1200" height="630" fill="#efe8d8"/>
+  <line x1="60" y1="80" x2="200" y2="80" stroke="#1a1714" stroke-width="3"/>
+  <text x="60" y="115" font-family="Inter, 'Noto Sans JP', sans-serif" font-size="14" font-weight="700" fill="#1a1714" letter-spacing="4">BUSINESS AI ／ FEATURE</text>
+  <text x="60" y="280" font-family="'Noto Serif JP', serif" font-size="170" font-weight="900" fill="#1a1714">多言語AI動画</text>
+  <text x="60" y="430" font-family="'Noto Serif JP', serif" font-size="170" font-weight="900" fill="#c9532e" font-style="italic">で世界へ。</text>
+  <line x1="60" y1="495" x2="180" y2="495" stroke="#1a1714" stroke-width="3"/>
+  <text x="60" y="535" font-family="'Noto Sans JP', sans-serif" font-size="22" font-weight="500" fill="rgba(26,23,20,0.7)">中小企業の海外進出を加速する 社長メッセージ動画</text>
+  <text x="1140" y="600" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#1a1714" letter-spacing="3" text-anchor="end">DALE MEDIA</text>
+</svg>

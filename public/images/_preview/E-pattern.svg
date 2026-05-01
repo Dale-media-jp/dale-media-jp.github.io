@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" preserveAspectRatio="xMidYMid slice">
+  <rect width="1200" height="630" fill="#1f3a3a"/>
+
+  <g opacity="0.95">
+    <circle cx="240" cy="540" r="380" fill="#d9c7a3"/>
+    <circle cx="240" cy="540" r="380" fill="#1f3a3a" opacity="0.0"/>
+  </g>
+  <g opacity="0.92">
+    <circle cx="980" cy="160" r="320" fill="#c9532e"/>
+  </g>
+  <g opacity="0.85">
+    <path d="M 0 380 Q 300 280 600 360 T 1200 320 L 1200 630 L 0 630 Z" fill="#0f2424"/>
+  </g>
+  <circle cx="600" cy="315" r="120" fill="none" stroke="#d9c7a3" stroke-width="2.5" stroke-dasharray="2 8"/>
+
+  <line x1="60" y1="80" x2="180" y2="80" stroke="#d9c7a3" stroke-width="3"/>
+  <text x="60" y="115" font-family="Inter, 'Noto Sans JP', sans-serif" font-size="14" font-weight="700" fill="#d9c7a3" letter-spacing="4">CASE STUDY ／ MANUFACTURING</text>
+
+  <text x="60" y="540" font-family="'Noto Serif JP', serif" font-size="56" font-weight="900" fill="#ffffff">外観検査AI</text>
+  <text x="60" y="585" font-family="'Noto Sans JP', sans-serif" font-size="18" font-weight="500" fill="rgba(217,199,163,0.85)">検査時間 −70% ／ 見逃し −50%</text>
+
+  <text x="1140" y="600" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="rgba(255,255,255,0.7)" letter-spacing="3" text-anchor="end">DALE MEDIA</text>
+</svg>
