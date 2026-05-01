@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" preserveAspectRatio="xMidYMid slice">
+  <rect width="1200" height="630" fill="#f0ead6"/>
+
+  <rect x="60" y="60" width="1080" height="6" fill="#1a1410"/>
+  <rect x="60" y="74" width="1080" height="2" fill="#1a1410"/>
+
+  <text x="60" y="115" font-family="Inter, 'Noto Sans JP', sans-serif" font-size="13" font-weight="700" fill="#1a1410" letter-spacing="6">PRESS ／ MEDIA COVERAGE</text>
+  <text x="1140" y="115" font-family="Inter, sans-serif" font-size="13" font-weight="500" fill="rgba(26,20,16,0.6)" letter-spacing="3" text-anchor="end">2026 . 04</text>
+
+  <text x="60" y="185" font-family="'Noto Serif JP', serif" font-size="44" font-weight="900" fill="#c9302c" letter-spacing="-1">日経MJ</text>
+  <text x="280" y="185" font-family="'Noto Serif JP', serif" font-size="32" font-weight="700" fill="#1a1410" letter-spacing="-1">に掲載されました。</text>
+
+  <line x1="60" y1="220" x2="1140" y2="220" stroke="#1a1410" stroke-width="1"/>
+  <line x1="60" y1="226" x2="1140" y2="226" stroke="#1a1410" stroke-width="1"/>
+
+  <text x="60" y="290" font-family="'Noto Serif JP', serif" font-size="56" font-weight="900" fill="#1a1410">写真と原稿だけで、</text>
+  <text x="60" y="360" font-family="'Noto Serif JP', serif" font-size="56" font-weight="900" fill="#1a1410">経営者の発信を加速。</text>
+
+  <text x="60" y="425" font-family="'Noto Sans JP', sans-serif" font-size="20" font-weight="500" fill="rgba(26,20,16,0.7)">海外進出経営者の動画化を支援する『社長スタジオ』</text>
+
+  <g transform="translate(870, 270)" stroke="#1a1410" stroke-width="1.5" fill="none">
+    <rect x="0" y="0" width="220" height="170"/>
+    <line x1="14" y1="22" x2="206" y2="22" stroke-width="0.8"/>
+    <line x1="14" y1="40" x2="170" y2="40" stroke-width="0.8"/>
+    <line x1="14" y1="58" x2="206" y2="58" stroke-width="0.8"/>
+    <line x1="14" y1="76" x2="160" y2="76" stroke-width="0.8"/>
+    <line x1="14" y1="94" x2="206" y2="94" stroke-width="0.8"/>
+    <line x1="14" y1="112" x2="190" y2="112" stroke-width="0.8"/>
+    <line x1="14" y1="130" x2="206" y2="130" stroke-width="0.8"/>
+    <line x1="14" y1="148" x2="120" y2="148" stroke-width="0.8"/>
+    <text x="14" y="-12" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#1a1410" letter-spacing="3">NEWSPAPER ARTICLE</text>
+  </g>
+
+  <line x1="60" y1="555" x2="1140" y2="555" stroke="#1a1410" stroke-width="1"/>
+  <text x="60" y="600" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#1a1410" letter-spacing="4">DALE MEDIA</text>
+  <text x="1140" y="600" font-family="Inter, sans-serif" font-size="13" font-weight="500" fill="rgba(26,20,16,0.6)" letter-spacing="3" text-anchor="end">PRESS RELEASE</text>
+</svg>

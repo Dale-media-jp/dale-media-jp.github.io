@@ -1,61 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" preserveAspectRatio="xMidYMid slice">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0e1f13"/>
-      <stop offset="100%" stop-color="#162d1c"/>
-    </linearGradient>
-    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(63,163,85,0.08)" stroke-width="1"/>
-    </pattern>
-  </defs>
-
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect width="1200" height="630" fill="url(#grid)"/>
-
-  <rect x="0" y="0" width="14" height="630" fill="#2d7a3e"/>
-  <rect x="60" y="60" width="120" height="3" fill="#3fa355"/>
-
-  <text x="60" y="105" font-family="Inter, 'Noto Sans JP', sans-serif"
-        font-size="22" font-weight="600" fill="#3fa355" letter-spacing="4">
-    BIZ-AI ／ GLOBAL
-  </text>
-
-  <text x="60" y="220" font-family="'Noto Sans JP', sans-serif"
-        font-size="56" font-weight="900" fill="#ffffff">
-    海外進出の経営者発信を
-  </text>
-  <text x="60" y="295" font-family="'Noto Sans JP', sans-serif"
-        font-size="56" font-weight="900" fill="#ffffff">
-    多言語AI動画で
-  </text>
-
-  <text x="60" y="395" font-family="'Noto Sans JP', sans-serif"
-        font-size="34" font-weight="700" fill="#3fa355">
-    EN ／ 中文 ／ Tiếng Việt
-  </text>
-  <text x="60" y="445" font-family="'Noto Sans JP', sans-serif"
-        font-size="34" font-weight="700" fill="#3fa355">
-    本人の声と顔を保ったまま
-  </text>
-
-  <text x="60" y="510" font-family="'Noto Sans JP', sans-serif"
-        font-size="22" font-weight="500" fill="rgba(255,255,255,0.65)">
-    海外IR・現地採用・展示会用の社長メッセージに
-  </text>
-
-  <line x1="60" y1="555" x2="180" y2="555" stroke="#3fa355" stroke-width="2"/>
-  <text x="60" y="585" font-family="Inter, 'Noto Sans JP', sans-serif"
-        font-size="18" font-weight="700" fill="#ffffff" letter-spacing="3">
-    Dale Media
-  </text>
-
-  <g transform="translate(880, 215)">
-    <circle cx="100" cy="100" r="100" fill="none" stroke="#3fa355" stroke-width="2"/>
-    <circle cx="100" cy="100" r="100" fill="rgba(45,122,62,0.1)"/>
-    <ellipse cx="100" cy="100" rx="40" ry="100" fill="none" stroke="#3fa355" stroke-width="1.2"/>
-    <line x1="0" y1="100" x2="200" y2="100" stroke="#3fa355" stroke-width="1.2"/>
-    <line x1="100" y1="0" x2="100" y2="200" stroke="#3fa355" stroke-width="1.2"/>
-    <path d="M 12 75 Q 100 55 188 75" fill="none" stroke="#3fa355" stroke-width="1"/>
-    <path d="M 12 125 Q 100 145 188 125" fill="none" stroke="#3fa355" stroke-width="1"/>
-  </g>
+  <rect width="1200" height="630" fill="#efe8d8"/>
+  <line x1="60" y1="80" x2="200" y2="80" stroke="#1a1714" stroke-width="3"/>
+  <text x="60" y="115" font-family="Inter, 'Noto Sans JP', sans-serif" font-size="14" font-weight="700" fill="#1a1714" letter-spacing="4">BUSINESS AI ／ FEATURE</text>
+  <text x="60" y="280" font-family="'Noto Serif JP', serif" font-size="170" font-weight="900" fill="#1a1714">多言語AI動画</text>
+  <text x="60" y="430" font-family="'Noto Serif JP', serif" font-size="170" font-weight="900" fill="#c9532e" font-style="italic">で世界へ。</text>
+  <line x1="60" y1="495" x2="180" y2="495" stroke="#1a1714" stroke-width="3"/>
+  <text x="60" y="535" font-family="'Noto Sans JP', sans-serif" font-size="22" font-weight="500" fill="rgba(26,23,20,0.7)">中小企業の海外進出を加速する 社長メッセージ動画</text>
+  <text x="1140" y="600" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#1a1714" letter-spacing="3" text-anchor="end">DALE MEDIA</text>
 </svg>

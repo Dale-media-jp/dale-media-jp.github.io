@@ -1,62 +1,39 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" preserveAspectRatio="xMidYMid slice">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0e1f13"/>
-      <stop offset="100%" stop-color="#162d1c"/>
-    </linearGradient>
-    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(63,163,85,0.08)" stroke-width="1"/>
-    </pattern>
-  </defs>
+  <rect width="1200" height="630" fill="#363a26"/>
 
-  <!-- background -->
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect width="1200" height="630" fill="url(#grid)"/>
+  <text x="60" y="105" font-family="Inter, 'Noto Sans JP', sans-serif" font-size="14" font-weight="700" fill="#e8d262" letter-spacing="6">CASE STUDY ／ MANUFACTURING ／ IR</text>
+  <line x1="60" y1="125" x2="220" y2="125" stroke="#e8d262" stroke-width="2"/>
 
-  <!-- accent corner -->
-  <rect x="0" y="0" width="14" height="630" fill="#2d7a3e"/>
-  <rect x="60" y="60" width="120" height="3" fill="#3fa355"/>
+  <g transform="translate(60, 220)">
+    <text x="0" y="60" font-family="Inter, sans-serif" font-size="100" font-weight="900" fill="#f5eede">10</text>
+    <text x="160" y="60" font-family="'Noto Sans JP', sans-serif" font-size="50" font-weight="700" fill="#f5eede">時間</text>
+    <text x="0" y="100" font-family="Inter, sans-serif" font-size="14" font-weight="500" fill="rgba(245,238,222,0.55)" letter-spacing="3">BEFORE</text>
 
-  <!-- category tag -->
-  <text x="60" y="105" font-family="Inter, 'Noto Sans JP', sans-serif"
-        font-size="22" font-weight="600" fill="#3fa355" letter-spacing="4">
-    CASE STUDY ／ MANUFACTURING
-  </text>
+    <g transform="translate(310, 30)">
+      <line x1="0" y1="0" x2="100" y2="0" stroke="#e8d262" stroke-width="3"/>
+      <polygon points="100,-8 120,0 100,8" fill="#e8d262"/>
+    </g>
 
-  <!-- title -->
-  <text x="60" y="240" font-family="'Noto Sans JP', sans-serif"
-        font-size="60" font-weight="900" fill="#ffffff">
-    製造業のIR動画制作を
-  </text>
-  <text x="60" y="320" font-family="'Noto Sans JP', sans-serif"
-        font-size="60" font-weight="900" fill="#ffffff">
-    AIで内製化
-  </text>
-
-  <!-- highlight -->
-  <text x="60" y="430" font-family="'Noto Sans JP', sans-serif"
-        font-size="42" font-weight="700" fill="#3fa355">
-    10時間 → 1時間
-  </text>
-
-  <!-- subtitle -->
-  <text x="60" y="495" font-family="'Noto Sans JP', sans-serif"
-        font-size="22" font-weight="500" fill="rgba(255,255,255,0.65)">
-    研修・eラーニング・マニュアル動画にも応用可
-  </text>
-
-  <!-- bottom brand -->
-  <line x1="60" y1="555" x2="180" y2="555" stroke="#3fa355" stroke-width="2"/>
-  <text x="60" y="585" font-family="Inter, 'Noto Sans JP', sans-serif"
-        font-size="18" font-weight="700" fill="#ffffff" letter-spacing="3">
-    Dale Media
-  </text>
-
-  <!-- right-side abstract play icon -->
-  <g transform="translate(880, 215) rotate(0)">
-    <circle cx="100" cy="100" r="160" fill="none" stroke="rgba(63,163,85,0.18)" stroke-width="1"/>
-    <circle cx="100" cy="100" r="120" fill="none" stroke="rgba(63,163,85,0.28)" stroke-width="1"/>
-    <circle cx="100" cy="100" r="80" fill="rgba(45,122,62,0.15)"/>
-    <polygon points="78,60 78,140 148,100" fill="#3fa355"/>
+    <text x="460" y="60" font-family="Inter, sans-serif" font-size="160" font-weight="900" fill="#e8d262">1</text>
+    <text x="540" y="60" font-family="'Noto Sans JP', sans-serif" font-size="50" font-weight="700" fill="#e8d262">時間</text>
+    <text x="460" y="100" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#e8d262" letter-spacing="3">AFTER ／ −90%</text>
   </g>
+
+  <text x="60" y="450" font-family="'Noto Serif JP', serif" font-size="46" font-weight="900" fill="#f5eede">IR動画制作をAIで内製化</text>
+  <text x="60" y="500" font-family="'Noto Sans JP', sans-serif" font-size="20" font-weight="500" fill="rgba(245,238,222,0.7)">研修・eラーニング動画にも応用可能</text>
+
+  <g transform="translate(940, 230)" fill="none" stroke="#e8d262" stroke-width="2">
+    <circle cx="0" cy="0" r="100"/>
+    <circle cx="0" cy="0" r="70" stroke="rgba(232,210,98,0.45)"/>
+    <line x1="0" y1="-100" x2="0" y2="-90"/>
+    <line x1="100" y1="0" x2="90" y2="0"/>
+    <line x1="0" y1="100" x2="0" y2="90"/>
+    <line x1="-100" y1="0" x2="-90" y2="0"/>
+    <line x1="0" y1="0" x2="0" y2="-70" stroke-width="3"/>
+    <line x1="0" y1="0" x2="42" y2="-42" stroke-width="3"/>
+    <circle cx="0" cy="0" r="6" fill="#e8d262" stroke="none"/>
+  </g>
+
+  <text x="60" y="600" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="rgba(245,238,222,0.5)" letter-spacing="4">DALE MEDIA</text>
+  <text x="1140" y="600" font-family="Inter, sans-serif" font-size="14" font-weight="500" fill="rgba(245,238,222,0.4)" letter-spacing="3" text-anchor="end">社長スタジオ ／ 工数 −90%</text>
 </svg>

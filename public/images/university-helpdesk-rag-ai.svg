@@ -1,30 +1,42 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" preserveAspectRatio="xMidYMid slice">
-  <defs>
-    <linearGradient id="bg7" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0e1f13"/>
-      <stop offset="100%" stop-color="#162d1c"/>
-    </linearGradient>
-    <pattern id="g7" width="60" height="60" patternUnits="userSpaceOnUse">
-      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(63,163,85,0.08)" stroke-width="1"/>
-    </pattern>
-  </defs>
-  <rect width="1200" height="630" fill="url(#bg7)"/>
-  <rect width="1200" height="630" fill="url(#g7)"/>
-  <rect x="0" y="0" width="14" height="630" fill="#2d7a3e"/>
-  <rect x="60" y="60" width="120" height="3" fill="#3fa355"/>
-  <text x="60" y="105" font-family="Inter, 'Noto Sans JP', sans-serif" font-size="22" font-weight="600" fill="#3fa355" letter-spacing="4">CASE STUDY ／ EDUCATION</text>
-  <text x="60" y="240" font-family="'Noto Sans JP', sans-serif" font-size="60" font-weight="900" fill="#ffffff">大学窓口を</text>
-  <text x="60" y="320" font-family="'Noto Sans JP', sans-serif" font-size="60" font-weight="900" fill="#ffffff">RAG×AIで24時間化</text>
-  <text x="60" y="430" font-family="'Noto Sans JP', sans-serif" font-size="42" font-weight="700" fill="#3fa355">問い合わせメール −40%</text>
-  <text x="60" y="495" font-family="'Noto Sans JP', sans-serif" font-size="22" font-weight="500" fill="rgba(255,255,255,0.65)">学内マニュアル・規程をAIで横断検索</text>
-  <line x1="60" y1="555" x2="180" y2="555" stroke="#3fa355" stroke-width="2"/>
-  <text x="60" y="585" font-family="Inter, 'Noto Sans JP', sans-serif" font-size="18" font-weight="700" fill="#ffffff" letter-spacing="3">Dale Media</text>
-  <g transform="translate(880, 235)">
-    <rect x="20" y="40" width="120" height="80" rx="10" fill="rgba(45,122,62,0.3)" stroke="#3fa355" stroke-width="2"/>
-    <polygon points="40,120 40,140 60,120" fill="rgba(45,122,62,0.3)" stroke="#3fa355" stroke-width="2"/>
-    <line x1="35" y1="70" x2="125" y2="70" stroke="#3fa355" stroke-width="1"/>
-    <line x1="35" y1="90" x2="125" y2="90" stroke="#3fa355" stroke-width="1"/>
-    <line x1="35" y1="110" x2="105" y2="110" stroke="#3fa355" stroke-width="1"/>
-    <text x="80" y="180" font-family="Inter, sans-serif" font-size="22" font-weight="700" fill="#3fa355" text-anchor="middle">24/7</text>
+  <rect width="1200" height="630" fill="#1f3a2c"/>
+
+  <text x="60" y="105" font-family="Inter, 'Noto Sans JP', sans-serif" font-size="14" font-weight="700" fill="#f0e9d0" letter-spacing="6">CASE STUDY ／ UNIVERSITY</text>
+  <line x1="60" y1="125" x2="180" y2="125" stroke="#f0e9d0" stroke-width="2"/>
+
+  <text x="60" y="220" font-family="'Noto Serif JP', serif" font-size="50" font-weight="900" fill="#f0e9d0">大学窓口を</text>
+  <text x="60" y="280" font-family="'Noto Serif JP', serif" font-size="50" font-weight="900" fill="#f0e9d0" font-style="italic">RAGで24時間化。</text>
+
+  <text x="60" y="370" font-family="Inter, sans-serif" font-size="100" font-weight="900" fill="#f0e9d0">−40<tspan font-size="50">%</tspan></text>
+  <text x="60" y="410" font-family="'Noto Sans JP', sans-serif" font-size="18" font-weight="500" fill="rgba(240,233,208,0.7)">問い合わせメール</text>
+
+  <g transform="translate(700, 160)">
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="380" height="60" rx="30" fill="#f0e9d0"/>
+      <text x="22" y="38" font-family="'Noto Sans JP', sans-serif" font-size="16" font-weight="500" fill="#1f3a2c">履修登録の締切は？</text>
+      <circle cx="350" cy="30" r="6" fill="#1f3a2c"/>
+    </g>
+    <g transform="translate(60, 90)">
+      <rect x="0" y="0" width="380" height="60" rx="30" fill="rgba(240,233,208,0.15)" stroke="#f0e9d0" stroke-width="1.5"/>
+      <text x="22" y="38" font-family="'Noto Sans JP', sans-serif" font-size="16" font-weight="500" fill="#f0e9d0">本年度は4月18日17:00です。</text>
+    </g>
+    <g transform="translate(0, 180)">
+      <rect x="0" y="0" width="380" height="60" rx="30" fill="#f0e9d0"/>
+      <text x="22" y="38" font-family="'Noto Sans JP', sans-serif" font-size="16" font-weight="500" fill="#1f3a2c">休学届の出し方を教えて</text>
+    </g>
+    <g transform="translate(60, 270)">
+      <rect x="0" y="0" width="380" height="60" rx="30" fill="rgba(240,233,208,0.15)" stroke="#f0e9d0" stroke-width="1.5"/>
+      <text x="22" y="38" font-family="'Noto Sans JP', sans-serif" font-size="16" font-weight="500" fill="#f0e9d0">所定様式 + 学事課に提出。</text>
+    </g>
   </g>
+
+  <g transform="translate(60, 460)" fill="none" stroke="#f0e9d0" stroke-width="2">
+    <circle cx="36" cy="36" r="36"/>
+    <line x1="36" y1="36" x2="36" y2="14" stroke-width="3"/>
+    <line x1="36" y1="36" x2="50" y2="36" stroke-width="3"/>
+    <text x="90" y="34" font-family="Inter, sans-serif" font-size="22" font-weight="900" fill="#f0e9d0">24h</text>
+    <text x="90" y="56" font-family="Inter, sans-serif" font-size="11" font-weight="500" fill="rgba(240,233,208,0.65)" letter-spacing="3">ALWAYS-ON</text>
+  </g>
+
+  <text x="1140" y="600" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="rgba(240,233,208,0.55)" letter-spacing="3" text-anchor="end">DALE MEDIA</text>
 </svg>

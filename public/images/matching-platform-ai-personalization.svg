@@ -1,30 +1,35 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" preserveAspectRatio="xMidYMid slice">
-  <defs>
-    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0e1f13"/>
-      <stop offset="100%" stop-color="#162d1c"/>
-    </linearGradient>
-    <pattern id="g2" width="60" height="60" patternUnits="userSpaceOnUse">
-      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(63,163,85,0.08)" stroke-width="1"/>
-    </pattern>
-  </defs>
-  <rect width="1200" height="630" fill="url(#bg2)"/>
-  <rect width="1200" height="630" fill="url(#g2)"/>
-  <rect x="0" y="0" width="14" height="630" fill="#2d7a3e"/>
-  <rect x="60" y="60" width="120" height="3" fill="#3fa355"/>
-  <text x="60" y="105" font-family="Inter, 'Noto Sans JP', sans-serif" font-size="22" font-weight="600" fill="#3fa355" letter-spacing="4">CASE STUDY ／ PLATFORM</text>
-  <text x="60" y="240" font-family="'Noto Sans JP', sans-serif" font-size="60" font-weight="900" fill="#ffffff">マッチングAI ×</text>
-  <text x="60" y="320" font-family="'Noto Sans JP', sans-serif" font-size="60" font-weight="900" fill="#ffffff">スパム検知導入</text>
-  <text x="60" y="430" font-family="'Noto Sans JP', sans-serif" font-size="42" font-weight="700" fill="#3fa355">CVR +35% / 離脱 −20%</text>
-  <text x="60" y="495" font-family="'Noto Sans JP', sans-serif" font-size="22" font-weight="500" fill="rgba(255,255,255,0.65)">Web ／ iOS 横断のユーザー体験統合</text>
-  <line x1="60" y1="555" x2="180" y2="555" stroke="#3fa355" stroke-width="2"/>
-  <text x="60" y="585" font-family="Inter, 'Noto Sans JP', sans-serif" font-size="18" font-weight="700" fill="#ffffff" letter-spacing="3">Dale Media</text>
-  <g transform="translate(880, 215)">
-    <circle cx="60" cy="100" r="40" fill="rgba(45,122,62,0.3)" stroke="#3fa355" stroke-width="2"/>
-    <circle cx="140" cy="60" r="40" fill="rgba(45,122,62,0.3)" stroke="#3fa355" stroke-width="2"/>
-    <circle cx="140" cy="140" r="40" fill="rgba(45,122,62,0.3)" stroke="#3fa355" stroke-width="2"/>
-    <line x1="60" y1="100" x2="140" y2="60" stroke="#3fa355" stroke-width="2"/>
-    <line x1="60" y1="100" x2="140" y2="140" stroke="#3fa355" stroke-width="2"/>
-    <line x1="140" y1="60" x2="140" y2="140" stroke="#3fa355" stroke-width="2"/>
+  <rect width="1200" height="630" fill="#3a1f3a"/>
+  <rect x="0" y="0" width="1200" height="630" fill="url(#gp)" opacity="0"/>
+
+  <text x="60" y="105" font-family="Inter, 'Noto Sans JP', sans-serif" font-size="14" font-weight="700" fill="#f4b8a0" letter-spacing="6">CASE STUDY ／ PLATFORM</text>
+
+  <text x="60" y="200" font-family="'Noto Serif JP', serif" font-size="46" font-weight="900" fill="#f4b8a0">マッチングAIで</text>
+  <text x="60" y="255" font-family="'Noto Serif JP', serif" font-size="46" font-weight="900" fill="#ffffff">CVRを引き上げる</text>
+
+  <g transform="translate(60, 310)">
+    <line x1="0" y1="180" x2="540" y2="180" stroke="rgba(244,184,160,0.3)" stroke-width="1"/>
+    <line x1="0" y1="120" x2="540" y2="120" stroke="rgba(244,184,160,0.15)" stroke-width="1"/>
+    <line x1="0" y1="60" x2="540" y2="60" stroke="rgba(244,184,160,0.15)" stroke-width="1"/>
+    <line x1="0" y1="0" x2="540" y2="0" stroke="rgba(244,184,160,0.15)" stroke-width="1"/>
+
+    <polyline points="0,170 90,160 180,150 270,135 360,115 450,90 540,40" fill="none" stroke="#f4b8a0" stroke-width="3"/>
+    <polyline points="0,170 90,168 180,165 270,160 360,158 450,156 540,150" fill="none" stroke="rgba(244,184,160,0.4)" stroke-width="2" stroke-dasharray="4 4"/>
+
+    <circle cx="540" cy="40" r="8" fill="#f4b8a0"/>
+    <text x="555" y="44" font-family="Inter, sans-serif" font-size="22" font-weight="900" fill="#f4b8a0">+35%</text>
+
+    <text x="0" y="210" font-family="Inter, sans-serif" font-size="11" font-weight="500" fill="rgba(244,184,160,0.6)" letter-spacing="2">BEFORE</text>
+    <text x="540" y="210" font-family="Inter, sans-serif" font-size="11" font-weight="500" fill="rgba(244,184,160,0.6)" letter-spacing="2" text-anchor="end">AFTER ／ AI INTRODUCED</text>
   </g>
+
+  <g transform="translate(820, 220)">
+    <text x="0" y="0" font-family="Inter, sans-serif" font-size="80" font-weight="900" fill="#f4b8a0">−20<tspan font-size="48">%</tspan></text>
+    <text x="0" y="40" font-family="'Noto Sans JP', sans-serif" font-size="16" font-weight="500" fill="rgba(244,184,160,0.7)">離脱率</text>
+    <line x1="0" y1="80" x2="180" y2="80" stroke="#f4b8a0" stroke-width="1"/>
+    <text x="0" y="125" font-family="'Noto Sans JP', sans-serif" font-size="16" font-weight="700" fill="#ffffff">パーソナライズ</text>
+    <text x="0" y="150" font-family="'Noto Sans JP', sans-serif" font-size="16" font-weight="700" fill="#ffffff">＋スパム検知</text>
+  </g>
+
+  <text x="60" y="600" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="rgba(255,255,255,0.55)" letter-spacing="4">DALE MEDIA</text>
 </svg>
