@@ -178,12 +178,14 @@ const dateStr = post.data.pubDate.toLocaleDateString('ja-JP', {
   /* Cover */
   .article-cover {
     width: 100%;
-    aspect-ratio: 16 / 7;
+    aspect-ratio: 1200 / 630;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     padding: 2rem;
+    background-origin: border-box;
+    background-clip: border-box;
   }
 
   .cover-cat {
