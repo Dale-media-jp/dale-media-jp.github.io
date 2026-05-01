@@ -1,18 +1,57 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" preserveAspectRatio="xMidYMid slice">
-  <rect width="1200" height="630" fill="#1f3a3a"/>
-  <g opacity="0.95">
-    <circle cx="240" cy="540" r="380" fill="#d9c7a3"/>
+  <rect width="1200" height="630" fill="#2a2e2c"/>
+
+  <text x="60" y="105" font-family="Inter, 'Noto Sans JP', sans-serif" font-size="14" font-weight="700" fill="#b8e63a" letter-spacing="6">CASE STUDY ／ MANUFACTURING ／ QC</text>
+  <line x1="60" y1="125" x2="180" y2="125" stroke="#b8e63a" stroke-width="2"/>
+
+  <text x="60" y="220" font-family="'Noto Serif JP', serif" font-size="56" font-weight="900" fill="#f0eee8">外観検査AIで</text>
+  <text x="60" y="280" font-family="'Noto Serif JP', serif" font-size="56" font-weight="900" fill="#b8e63a">不良品ゼロへ。</text>
+
+  <text x="60" y="360" font-family="Inter, sans-serif" font-size="100" font-weight="900" fill="#f0eee8">−70<tspan font-size="50">%</tspan></text>
+  <text x="60" y="395" font-family="'Noto Sans JP', sans-serif" font-size="16" font-weight="500" fill="rgba(240,238,232,0.7)">検査時間</text>
+
+  <text x="280" y="360" font-family="Inter, sans-serif" font-size="100" font-weight="900" fill="#b8e63a">−50<tspan font-size="50">%</tspan></text>
+  <text x="280" y="395" font-family="'Noto Sans JP', sans-serif" font-size="16" font-weight="500" fill="rgba(240,238,232,0.7)">見逃し</text>
+
+  <g transform="translate(60, 470)">
+    <line x1="0" y1="40" x2="500" y2="40" stroke="#5a5e5c" stroke-width="6"/>
+    <line x1="0" y1="46" x2="500" y2="46" stroke="#1a1c1b" stroke-width="2"/>
+    <g fill="#7a7e7c" stroke="#1a1c1b" stroke-width="1">
+      <rect x="20" y="14" width="50" height="26"/>
+      <rect x="100" y="14" width="50" height="26"/>
+      <rect x="180" y="14" width="50" height="26"/>
+      <rect x="260" y="14" width="50" height="26"/>
+      <rect x="340" y="14" width="50" height="26"/>
+      <rect x="420" y="14" width="50" height="26"/>
+    </g>
+    <g stroke="#b8e63a" stroke-width="2" fill="none">
+      <rect x="100" y="14" width="50" height="26"/>
+      <rect x="340" y="14" width="50" height="26"/>
+    </g>
+    <text x="125" y="6" font-family="Inter, sans-serif" font-size="9" font-weight="900" fill="#b8e63a" text-anchor="middle" letter-spacing="1">NG</text>
+    <text x="365" y="6" font-family="Inter, sans-serif" font-size="9" font-weight="900" fill="#b8e63a" text-anchor="middle" letter-spacing="1">NG</text>
   </g>
-  <g opacity="0.92">
-    <circle cx="980" cy="160" r="320" fill="#c9532e"/>
+
+  <g transform="translate(800, 200)">
+    <rect x="0" y="0" width="320" height="240" fill="#1a1c1b" stroke="#b8e63a" stroke-width="2"/>
+    <rect x="0" y="0" width="320" height="28" fill="#b8e63a"/>
+    <text x="14" y="20" font-family="Inter, sans-serif" font-size="12" font-weight="900" fill="#1a1c1b" letter-spacing="3">CAMERA ／ LIVE</text>
+    <text x="306" y="20" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#1a1c1b" letter-spacing="2" text-anchor="end">REC ●</text>
+    <g fill="#3a3e3c">
+      <rect x="20" y="50" width="280" height="170"/>
+    </g>
+    <g fill="#7a7e7c">
+      <rect x="80" y="100" width="160" height="80" rx="3"/>
+    </g>
+    <g stroke="#b8e63a" stroke-width="2" fill="none">
+      <rect x="100" y="120" width="40" height="40"/>
+      <line x1="100" y1="120" x2="80" y2="100"/>
+      <line x1="140" y1="120" x2="160" y2="100"/>
+      <line x1="100" y1="160" x2="80" y2="180"/>
+      <line x1="140" y1="160" x2="160" y2="180"/>
+    </g>
+    <text x="148" y="138" font-family="Inter, sans-serif" font-size="9" font-weight="900" fill="#b8e63a" letter-spacing="1">RUST 0.94</text>
   </g>
-  <g opacity="0.85">
-    <path d="M 0 380 Q 300 280 600 360 T 1200 320 L 1200 630 L 0 630 Z" fill="#0f2424"/>
-  </g>
-  <circle cx="600" cy="315" r="120" fill="none" stroke="#d9c7a3" stroke-width="2.5" stroke-dasharray="2 8"/>
-  <line x1="60" y1="80" x2="180" y2="80" stroke="#d9c7a3" stroke-width="3"/>
-  <text x="60" y="115" font-family="Inter, 'Noto Sans JP', sans-serif" font-size="14" font-weight="700" fill="#d9c7a3" letter-spacing="4">CASE STUDY ／ MANUFACTURING</text>
-  <text x="60" y="540" font-family="'Noto Serif JP', serif" font-size="56" font-weight="900" fill="#ffffff">外観検査AI</text>
-  <text x="60" y="585" font-family="'Noto Sans JP', sans-serif" font-size="18" font-weight="500" fill="rgba(217,199,163,0.85)">検査時間 −70% ／ 見逃し −50%</text>
-  <text x="1140" y="600" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="rgba(255,255,255,0.7)" letter-spacing="3" text-anchor="end">DALE MEDIA</text>
+
+  <text x="60" y="600" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="rgba(240,238,232,0.55)" letter-spacing="4">DALE MEDIA</text>
 </svg>
