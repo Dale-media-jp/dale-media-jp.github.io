@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" preserveAspectRatio="xMidYMid slice">
+  <rect width="1200" height="630" fill="#f4eed8"/>
+  <rect x="0" y="0" width="1200" height="120" fill="#5a6e4e"/>
+
+  <text x="60" y="68" font-family="Inter, 'Noto Sans JP', sans-serif" font-size="14" font-weight="700" fill="#f4eed8" letter-spacing="6">BUSINESS AI ／ COST CUT</text>
+  <text x="1140" y="68" font-family="Inter, sans-serif" font-size="13" font-weight="500" fill="rgba(244,238,216,0.7)" letter-spacing="3" text-anchor="end">広報部 ／ 動画内製化</text>
+
+  <text x="60" y="240" font-family="'Noto Serif JP', serif" font-size="64" font-weight="900" fill="#2e3a26">広報の動画は、</text>
+  <text x="60" y="315" font-family="'Noto Serif JP', serif" font-size="64" font-weight="900" fill="#5a6e4e">外注しなくていい。</text>
+
+  <text x="60" y="380" font-family="'Noto Sans JP', sans-serif" font-size="20" font-weight="500" fill="rgba(46,58,38,0.7)">会社紹介・経営者メッセージを内製化するROI試算</text>
+
+  <g transform="translate(60, 450)">
+    <text x="0" y="0" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="rgba(46,58,38,0.55)" letter-spacing="3">EXTERNAL ／ 外注</text>
+    <text x="0" y="78" font-family="Inter, sans-serif" font-size="76" font-weight="900" fill="#2e3a26">¥<tspan letter-spacing="-3">50</tspan></text>
+    <text x="170" y="78" font-family="'Noto Sans JP', sans-serif" font-size="28" font-weight="700" fill="#2e3a26">万 / 本</text>
+    <line x1="0" y1="100" x2="280" y2="100" stroke="rgba(46,58,38,0.3)" stroke-width="1"/>
+  </g>
+
+  <g transform="translate(420, 480)">
+    <line x1="0" y1="20" x2="100" y2="20" stroke="#2e3a26" stroke-width="3"/>
+    <polygon points="100,8 120,20 100,32" fill="#2e3a26"/>
+    <text x="60" y="-8" font-family="Inter, sans-serif" font-size="11" font-weight="900" fill="#2e3a26" text-anchor="middle" letter-spacing="3">AI 内製化</text>
+  </g>
+
+  <g transform="translate(620, 450)">
+    <text x="0" y="0" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#5a6e4e" letter-spacing="3">IN-HOUSE ／ 内製</text>
+    <text x="0" y="78" font-family="Inter, sans-serif" font-size="76" font-weight="900" fill="#5a6e4e">¥<tspan letter-spacing="-3">5</tspan></text>
+    <text x="100" y="78" font-family="'Noto Sans JP', sans-serif" font-size="28" font-weight="700" fill="#5a6e4e">万 / 本</text>
+    <line x1="0" y1="100" x2="200" y2="100" stroke="#5a6e4e" stroke-width="2"/>
+  </g>
+
+  <g transform="translate(900, 200)">
+    <rect x="0" y="0" width="220" height="160" fill="#5a6e4e" rx="4"/>
+    <rect x="14" y="14" width="192" height="100" fill="#f4eed8"/>
+    <circle cx="110" cy="64" r="22" fill="#5a6e4e"/>
+    <polygon points="103,52 103,76 125,64" fill="#f4eed8"/>
+    <text x="14" y="138" font-family="Inter, sans-serif" font-size="11" font-weight="900" fill="#f4eed8" letter-spacing="3">CORPORATE VIDEO</text>
+  </g>
+
+  <text x="1140" y="600" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="rgba(46,58,38,0.55)" letter-spacing="3" text-anchor="end">DALE MEDIA</text>
+</svg>

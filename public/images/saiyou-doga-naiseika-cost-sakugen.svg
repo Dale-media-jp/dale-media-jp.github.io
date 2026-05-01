@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" preserveAspectRatio="xMidYMid slice">
+  <rect width="1200" height="630" fill="#2a1f1a"/>
+
+  <text x="60" y="105" font-family="Inter, 'Noto Sans JP', sans-serif" font-size="14" font-weight="700" fill="#e8a644" letter-spacing="6">BUSINESS AI ／ RECRUITMENT ROI</text>
+  <line x1="60" y1="125" x2="180" y2="125" stroke="#e8a644" stroke-width="2"/>
+
+  <text x="60" y="220" font-family="'Noto Serif JP', serif" font-size="58" font-weight="900" fill="#f0e6d4">採用動画の</text>
+  <text x="60" y="285" font-family="'Noto Serif JP', serif" font-size="58" font-weight="900" fill="#e8a644">ROIを取り戻す。</text>
+
+  <text x="60" y="345" font-family="'Noto Sans JP', sans-serif" font-size="20" font-weight="500" fill="rgba(240,230,212,0.7)">外注と内製、どっちが本当に得か。試算してみた。</text>
+
+  <g transform="translate(60, 410)">
+    <rect x="0" y="0" width="280" height="150" fill="none" stroke="rgba(240,230,212,0.4)" stroke-width="1.5"/>
+    <text x="14" y="32" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="rgba(240,230,212,0.55)" letter-spacing="3">外注</text>
+    <text x="14" y="80" font-family="Inter, sans-serif" font-size="46" font-weight="900" fill="#f0e6d4">¥<tspan letter-spacing="-2">300</tspan></text>
+    <text x="180" y="80" font-family="'Noto Sans JP', sans-serif" font-size="20" font-weight="700" fill="#f0e6d4">万 / 年</text>
+    <text x="14" y="115" font-family="'Noto Sans JP', sans-serif" font-size="13" font-weight="500" fill="rgba(240,230,212,0.55)">採用動画 5本想定</text>
+  </g>
+
+  <g transform="translate(380, 480)">
+    <line x1="0" y1="0" x2="80" y2="0" stroke="#e8a644" stroke-width="3"/>
+    <polygon points="80,-12 100,0 80,12" fill="#e8a644"/>
+  </g>
+
+  <g transform="translate(520, 410)">
+    <rect x="0" y="0" width="280" height="150" fill="#e8a644"/>
+    <text x="14" y="32" font-family="Inter, sans-serif" font-size="12" font-weight="900" fill="#2a1f1a" letter-spacing="3">AI 内製</text>
+    <text x="14" y="80" font-family="Inter, sans-serif" font-size="46" font-weight="900" fill="#2a1f1a">¥<tspan letter-spacing="-2">30</tspan></text>
+    <text x="118" y="80" font-family="'Noto Sans JP', sans-serif" font-size="20" font-weight="700" fill="#2a1f1a">万 / 年</text>
+    <text x="14" y="115" font-family="'Noto Sans JP', sans-serif" font-size="13" font-weight="700" fill="#2a1f1a">10倍量産も可能</text>
+  </g>
+
+  <g transform="translate(880, 220)">
+    <text x="0" y="0" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#e8a644" letter-spacing="3">削減幅</text>
+    <text x="0" y="120" font-family="Inter, sans-serif" font-size="160" font-weight="900" fill="#e8a644">−90<tspan font-size="80">%</tspan></text>
+    <text x="0" y="160" font-family="'Noto Sans JP', sans-serif" font-size="16" font-weight="500" fill="rgba(232,166,68,0.85)">年間制作コスト</text>
+  </g>
+
+  <text x="60" y="600" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="rgba(240,230,212,0.55)" letter-spacing="4">DALE MEDIA</text>
+</svg>
