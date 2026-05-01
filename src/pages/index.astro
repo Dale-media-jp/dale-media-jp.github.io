@@ -10,6 +10,12 @@ const allPosts = [
   ...(await getCollection('cases',     ({ data }) => !data.draft)),
 ].sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
+// === HERO PIN (TEMP) — このブロックを削除すれば pubDate 最新が hero に戻る ===
+const PINNED_HERO_ID = 'gyosei-shoshi-ai-katsuyou';
+const pinIdx = allPosts.findIndex(p => p.id === PINNED_HERO_ID);
+if (pinIdx > 0) allPosts.unshift(...allPosts.splice(pinIdx, 1));
+// === /HERO PIN ===
+
 const [hero, ...rest] = allPosts;
 const subHero = rest.slice(0, 2);
 const grid = rest.slice(2);
