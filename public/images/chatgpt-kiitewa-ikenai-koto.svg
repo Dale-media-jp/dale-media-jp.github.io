@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" preserveAspectRatio="xMidYMid slice">
+  <rect width="1200" height="630" fill="#f5e8d6"/>
+
+  <text x="60" y="105" font-family="Inter, 'Noto Sans JP', sans-serif" font-size="14" font-weight="700" fill="#c44a2e" letter-spacing="6">AI ／ FOR EVERYONE</text>
+  <line x1="60" y1="125" x2="180" y2="125" stroke="#c44a2e" stroke-width="2"/>
+
+  <text x="60" y="225" font-family="'Noto Serif JP', serif" font-size="56" font-weight="900" fill="#3a2d20">ChatGPTに、</text>
+  <text x="60" y="305" font-family="'Noto Serif JP', serif" font-size="76" font-weight="900" fill="#c44a2e">聞いてはいけない</text>
+  <text x="60" y="385" font-family="'Noto Serif JP', serif" font-size="92" font-weight="900" fill="#3a2d20">7つのこと。</text>
+
+  <text x="60" y="450" font-family="'Noto Sans JP', sans-serif" font-size="22" font-weight="500" fill="rgba(58,45,32,0.7)">AIを安全に使うための、やさしい注意点</text>
+
+  <g transform="translate(60, 510)">
+    <rect x="0" y="0" width="56" height="40" fill="#3a2d20" rx="2"/>
+    <text x="28" y="28" font-family="Inter, sans-serif" font-size="14" font-weight="900" fill="#f5e8d6" text-anchor="middle">01</text>
+    <text x="74" y="26" font-family="'Noto Sans JP', sans-serif" font-size="13" font-weight="700" fill="#3a2d20">個人情報</text>
+
+    <rect x="180" y="0" width="56" height="40" fill="#3a2d20" rx="2"/>
+    <text x="208" y="28" font-family="Inter, sans-serif" font-size="14" font-weight="900" fill="#f5e8d6" text-anchor="middle">03</text>
+    <text x="254" y="26" font-family="'Noto Sans JP', sans-serif" font-size="13" font-weight="700" fill="#3a2d20">病気の診断</text>
+
+    <rect x="380" y="0" width="56" height="40" fill="#3a2d20" rx="2"/>
+    <text x="408" y="28" font-family="Inter, sans-serif" font-size="14" font-weight="900" fill="#f5e8d6" text-anchor="middle">06</text>
+    <text x="454" y="26" font-family="'Noto Sans JP', sans-serif" font-size="13" font-weight="700" fill="#3a2d20">心の深い悩み</text>
+  </g>
+
+  <g transform="translate(870, 200)">
+    <circle cx="100" cy="100" r="100" fill="#c44a2e"/>
+    <rect x="92" y="40" width="16" height="80" fill="#f5e8d6" rx="2"/>
+    <circle cx="100" cy="148" r="10" fill="#f5e8d6"/>
+    <text x="100" y="220" font-family="Inter, sans-serif" font-size="13" font-weight="900" fill="#3a2d20" text-anchor="middle" letter-spacing="3">CAUTION</text>
+  </g>
+
+  <text x="1140" y="600" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#3a2d20" letter-spacing="3" text-anchor="end">DALE MEDIA</text>
+</svg>
