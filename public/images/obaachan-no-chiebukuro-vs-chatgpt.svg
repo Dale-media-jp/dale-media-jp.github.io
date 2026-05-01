@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" preserveAspectRatio="xMidYMid slice">
+  <rect width="1200" height="630" fill="#e8d098"/>
+
+  <text x="60" y="105" font-family="Inter, 'Noto Sans JP', sans-serif" font-size="14" font-weight="700" fill="#5e3a18" letter-spacing="6">AI ／ ESSAY</text>
+  <line x1="60" y1="125" x2="180" y2="125" stroke="#5e3a18" stroke-width="2"/>
+
+  <text x="60" y="240" font-family="'Noto Serif JP', serif" font-size="58" font-weight="900" fill="#3a2010">おばあちゃんの</text>
+  <text x="60" y="310" font-family="'Noto Serif JP', serif" font-size="58" font-weight="900" fill="#3a2010">知恵袋</text>
+  <text x="380" y="310" font-family="Inter, sans-serif" font-size="58" font-weight="900" fill="#c44e1f" font-style="italic">vs</text>
+  <text x="475" y="310" font-family="'Noto Serif JP', serif" font-size="58" font-weight="900" fill="#3a2010">ChatGPT</text>
+
+  <text x="60" y="380" font-family="'Noto Sans JP', sans-serif" font-size="20" font-weight="500" fill="rgba(58,32,16,0.7)">古い知恵と新しい知恵、どっちが暮らしに役立つ？</text>
+
+  <g transform="translate(60, 440)">
+    <rect x="0" y="0" width="220" height="140" fill="#5e3a18"/>
+    <text x="14" y="32" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#e8d098" letter-spacing="3">OLD WISDOM</text>
+    <text x="14" y="80" font-family="'Noto Serif JP', serif" font-size="44" font-weight="900" fill="#e8d098">経験</text>
+    <text x="120" y="80" font-family="'Noto Serif JP', serif" font-size="44" font-weight="900" fill="#c44e1f">×温かさ</text>
+    <line x1="14" y1="100" x2="206" y2="100" stroke="rgba(232,208,152,0.3)"/>
+    <text x="14" y="124" font-family="'Noto Sans JP', sans-serif" font-size="12" font-weight="500" fill="rgba(232,208,152,0.7)">仲直り、子育て、励まし</text>
+  </g>
+
+  <text x="320" y="520" font-family="Inter, sans-serif" font-size="32" font-weight="900" fill="#5e3a18">+</text>
+
+  <g transform="translate(380, 440)">
+    <rect x="0" y="0" width="220" height="140" fill="#3a2010"/>
+    <text x="14" y="32" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#c44e1f" letter-spacing="3">NEW WISDOM</text>
+    <text x="14" y="80" font-family="'Noto Serif JP', serif" font-size="44" font-weight="900" fill="#e8d098">情報</text>
+    <text x="120" y="80" font-family="'Noto Serif JP', serif" font-size="44" font-weight="900" fill="#c44e1f">×速さ</text>
+    <line x1="14" y1="100" x2="206" y2="100" stroke="rgba(232,208,152,0.3)"/>
+    <text x="14" y="124" font-family="'Noto Sans JP', sans-serif" font-size="12" font-weight="500" fill="rgba(232,208,152,0.7)">用語解説、調べもの</text>
+  </g>
+
+  <g transform="translate(880, 200)">
+    <circle cx="60" cy="80" r="56" fill="#5e3a18"/>
+    <circle cx="60" cy="62" r="14" fill="#e8d098"/>
+    <path d="M 36 90 Q 60 66 84 90 L 84 116 L 36 116 Z" fill="#e8d098"/>
+    <circle cx="42" cy="58" r="3" fill="#3a2010"/>
+    <circle cx="78" cy="58" r="3" fill="#3a2010"/>
+    <path d="M 50 70 Q 60 76 70 70" fill="none" stroke="#3a2010" stroke-width="2" stroke-linecap="round"/>
+    <text x="60" y="160" font-family="'Noto Sans JP', serif" font-size="14" font-weight="700" fill="#3a2010" text-anchor="middle">おばあちゃん</text>
+
+    <text x="140" y="86" font-family="Inter, sans-serif" font-size="22" font-weight="900" fill="#3a2010">＆</text>
+
+    <rect x="180" y="32" width="112" height="92" fill="#3a2010" rx="14"/>
+    <rect x="190" y="42" width="92" height="60" fill="#e8d098" rx="2"/>
+    <text x="236" y="74" font-family="Inter, sans-serif" font-size="12" font-weight="900" fill="#c44e1f" text-anchor="middle">CHATGPT</text>
+    <line x1="190" y1="84" x2="270" y2="84" stroke="rgba(94,58,24,0.3)"/>
+    <text x="236" y="98" font-family="Inter, sans-serif" font-size="9" font-weight="700" fill="#3a2010" text-anchor="middle">AI ASSISTANT</text>
+    <text x="236" y="160" font-family="'Noto Sans JP', serif" font-size="14" font-weight="700" fill="#3a2010" text-anchor="middle">AI</text>
+  </g>
+
+  <text x="1140" y="600" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#3a2010" letter-spacing="3" text-anchor="end">DALE MEDIA</text>
+</svg>
